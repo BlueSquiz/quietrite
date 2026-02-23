@@ -6,28 +6,40 @@
   <title>QUIETRITE — UGC premium</title>
   <meta name="description" content="UGC performance dla marek Health & Sport. Pakiety UGC, Ads Usage i strategia treści. Kontakt: kontakt@quietrite.pl" />
 
+  <!-- Canonical + Social -->
+  <link rel="canonical" href="https://quietrite.pl/" />
   <meta property="og:title" content="QUIETRITE — UGC premium" />
   <meta property="og:description" content="UGC, które sprzedaje. Bez hałasu. Pakiety, Ads Usage i strategia." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://quietrite.pl" />
+  <meta property="og:image" content="https://quietrite.pl/og-quietrite-1200x630.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://quietrite.pl/og-quietrite-1200x630.png" />
 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- cache-buster dla CSS -->
-  <link rel="stylesheet" href="styles.css?v=7" />
+  <!-- Favicons (wrzuć pliki do repo root) -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="/favicon-512.png" sizes="512x512">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- CSS (cache-buster) -->
+  <link rel="stylesheet" href="styles.css?v=10" />
 </head>
 
 <body>
   <header class="nav">
     <div class="wrap nav__row">
+      <!-- LOGO: wrzuć logo jako /logo.png -->
       <a class="brand" href="#top" aria-label="QUIETRITE">
-        <span class="brand__mark">QR</span>
-        <span class="brand__name">QUIETRITE</span>
+        <img class="brand__logo" src="/logo.png" alt="QUIETRITE" />
       </a>
 
       <nav class="nav__links" aria-label="Nawigacja">
+        <a href="#wyniki">Wyniki</a>
         <a href="#portfolio">Portfolio</a>
         <a href="#pakiety">Pakiety</a>
         <a href="#proces">Proces</a>
@@ -38,8 +50,9 @@
       <button class="nav__burger" id="burger" type="button" aria-label="Menu" aria-expanded="false">☰</button>
     </div>
 
-    <!-- MOBILE MENU (overlay; sterowane klasą .is-open) -->
+    <!-- MOBILE MENU -->
     <div class="wrap nav__mobile" id="mobileNav" aria-hidden="true">
+      <a href="#wyniki">Wyniki</a>
       <a href="#portfolio">Portfolio</a>
       <a href="#pakiety">Pakiety</a>
       <a href="#proces">Proces</a>
@@ -109,7 +122,7 @@
       </div>
     </section>
 
-    <!-- RESULTS (animowany pierścień) -->
+    <!-- RESULTS -->
     <section class="section" id="wyniki">
       <div class="wrap">
         <div class="section__head">
@@ -217,7 +230,6 @@
         </div>
 
         <div class="pricing">
-          <!-- BASIC -->
           <div class="pricecard">
             <h3>BASIC</h3>
             <p class="pricecard__sub">1 UGC video</p>
@@ -230,7 +242,6 @@
             <a class="btn btn--ghost" href="#kontakt">Zapytaj o termin</a>
           </div>
 
-          <!-- PRO -->
           <div class="pricecard pricecard--featured">
             <div class="badge">Najczęściej wybierane</div>
             <h3>PRO</h3>
@@ -245,7 +256,6 @@
             <a class="btn" href="#kontakt">Chcę PRO</a>
           </div>
 
-          <!-- ELITE -->
           <div class="pricecard">
             <h3>ELITE</h3>
             <p class="pricecard__sub">6 wideo + test hooków</p>
@@ -365,6 +375,15 @@
 
           <div class="contact__box">
             <div><strong>E-mail:</strong> <a href="mailto:kontakt@quietrite.pl">kontakt@quietrite.pl</a></div>
+
+            <!-- Copy email (7A) -->
+            <div class="contact__actions">
+              <button class="btn btn--ghost copyBtn" type="button" data-copy="kontakt@quietrite.pl">
+                Kopiuj e-mail
+              </button>
+              <span class="copyToast" id="copyToast" aria-live="polite"></span>
+            </div>
+
             <div class="muted small">Odpowiadam zwykle w 24h.</div>
           </div>
         </div>
@@ -402,7 +421,6 @@
     </footer>
   </main>
 
-  <!-- cache-buster dla JS -->
-  <script src="script.js?v=7"></script>
+  <script src="script.js?v=10"></script>
 </body>
 </html>

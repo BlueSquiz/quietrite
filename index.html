@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>QUIETRITE — UGC performance dla marek Health & Sport</title>
-  <meta name="description" content="UGC performance dla marek Health & Sport. Wideo, które sprzedaje: hooki, scenariusze, montaż i warianty pod reklamy." />
+  <title>QUIETRITE — UGC premium</title>
+  <meta name="description" content="UGC performance dla marek Health & Sport. Pakiety UGC, Ads Usage i strategia treści. Kontakt: kontakt@quietrite.pl" />
 
-  <meta property="og:title" content="QUIETRITE — UGC performance" />
-  <meta property="og:description" content="UGC pod sprzedaż dla marek health & sport. Precyzja. Dyscyplina. Wynik." />
+  <meta property="og:title" content="QUIETRITE — UGC premium" />
+  <meta property="og:description" content="UGC, które sprzedaje. Bez hałasu. Pakiety, Ads Usage i strategia." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://quietrite.pl" />
 
@@ -37,7 +37,8 @@
       <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false">☰</button>
     </div>
 
-    <div class="wrap nav__mobile" id="mobileNav" hidden>
+    <!-- MOBILE MENU (overlay; sterowane klasą .is-open) -->
+    <div class="wrap nav__mobile" id="mobileNav">
       <a href="#portfolio">Portfolio</a>
       <a href="#pakiety">Pakiety</a>
       <a href="#proces">Proces</a>
@@ -107,16 +108,66 @@
       </div>
     </section>
 
+    <!-- RESULTS (animowany pierścień) -->
+    <section class="section" id="wyniki">
+      <div class="wrap">
+        <div class="section__head">
+          <h2>Wyniki</h2>
+          <p>Ostatnie 30 dni • ruch organiczny</p>
+        </div>
+
+        <div class="results">
+          <div class="ringcard" data-value="23650" data-followers="31.9" data-nonfollowers="68.1">
+            <div class="ringwrap">
+              <svg class="ring" viewBox="0 0 120 120" aria-label="Wyniki wyświetleń">
+                <circle class="ring__track" cx="60" cy="60" r="46"></circle>
+                <circle class="ring__seg ring__seg--nf" cx="60" cy="60" r="46"></circle>
+                <circle class="ring__seg ring__seg--f" cx="60" cy="60" r="46"></circle>
+              </svg>
+
+              <div class="ringcenter">
+                <div class="ringcenter__label">Wyświetlenia</div>
+                <div class="ringcenter__value" id="viewsValue">23,650</div>
+              </div>
+            </div>
+
+            <div class="legend">
+              <div class="legend__row">
+                <span class="dot dot--f"></span>
+                <span class="legend__name">Obserwatorzy</span>
+                <span class="legend__val" id="followersPct">31,9%</span>
+              </div>
+              <div class="legend__row">
+                <span class="dot dot--nf"></span>
+                <span class="legend__name">Osoby nieobserwujące</span>
+                <span class="legend__val" id="nonFollowersPct">68,1%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="results__notes">
+            <div class="card">
+              <h3>Co to znaczy?</h3>
+              <ul class="list">
+                <li>Duży udział nieobserwujących = content dociera szeroko.</li>
+                <li>To idealne pod performance UGC (hooki + szybkie CTA).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- PORTFOLIO -->
     <section class="section" id="portfolio">
       <div class="wrap">
         <div class="section__head">
           <h2>Portfolio</h2>
-          <p>Wstaw tu swoje najlepsze 6–9 materiałów (linki do Reels / TikTok / YouTube Shorts).</p>
+          <p>Podmień linki poniżej na Twoje najlepsze materiały (Reels/TikTok/Shorts).</p>
         </div>
 
         <div class="grid">
-          <!-- Podmień href i teksty -->
           <a class="tile" href="#" target="_blank" rel="noreferrer">
             <div class="tile__tag">UGC Ad</div>
             <div class="tile__title">Suplement: energia / trening</div>
@@ -160,43 +211,44 @@
     <section class="section section--alt" id="pakiety">
       <div class="wrap">
         <div class="section__head">
-          <h2>Pakiety</h2>
-          <p>Ceny możesz zmienić w 10 sekund. Zostawiłem je jako „starter” pod performance UGC.</p>
+          <h2>Pakiety UGC</h2>
+          <p>Oferta pakietowa + Ads Usage + Strategia treści.</p>
         </div>
 
         <div class="pricing">
+          <!-- BASIC -->
           <div class="pricecard">
-            <h3>START</h3>
-            <p class="pricecard__sub">1 wideo UGC</p>
-            <div class="price">1200–1500 zł</div>
+            <h3>BASIC</h3>
+            <p class="pricecard__sub">1 UGC video</p>
+            <div class="price">1100 zł</div>
             <ul class="list">
               <li>Scenariusz + hook</li>
               <li>Wideo 9:16 (20–40s)</li>
               <li>Napisy + montaż</li>
-              <li>1 runda poprawek</li>
             </ul>
             <a class="btn btn--ghost" href="#kontakt">Zapytaj o termin</a>
           </div>
 
+          <!-- PRO -->
           <div class="pricecard pricecard--featured">
             <div class="badge">Najczęściej wybierane</div>
             <h3>PRO</h3>
-            <p class="pricecard__sub">3 wideo UGC</p>
-            <div class="price">3000–3500 zł</div>
+            <p class="pricecard__sub">3 UGC video</p>
+            <div class="price">2500 zł</div>
             <ul class="list">
               <li>3 scenariusze + hooki</li>
               <li>Wideo 9:16 (20–45s)</li>
               <li>Napisy + montaż</li>
-              <li>2 rundy poprawek</li>
               <li>Mini plan publikacji/ads</li>
             </ul>
             <a class="btn" href="#kontakt">Chcę PRO</a>
           </div>
 
+          <!-- ELITE -->
           <div class="pricecard">
-            <h3>PERFORMANCE</h3>
-            <p class="pricecard__sub">6 wideo + warianty</p>
-            <div class="price">5000+ zł</div>
+            <h3>ELITE</h3>
+            <p class="pricecard__sub">6 wideo + test hooków</p>
+            <div class="price">5000 zł</div>
             <ul class="list">
               <li>6 wideo + test hooków</li>
               <li>Warianty pod A/B</li>
@@ -208,7 +260,35 @@
           </div>
         </div>
 
-        <p class="note">* Jeśli chcesz prawa do użycia w reklamach na dłużej (ads usage), dopiszemy to w mailu.</p>
+        <div class="section__head" style="margin-top:22px;">
+          <h2>Wykorzystanie w reklamach (Ads Usage)</h2>
+          <p>Dotyczy wykorzystania materiałów w kampaniach płatnych (Meta, TikTok, YouTube).</p>
+        </div>
+
+        <div class="pricing" style="grid-template-columns: 1fr;">
+          <div class="pricecard">
+            <ul class="list">
+              <li><strong>30 dni</strong> — 1000 zł</li>
+              <li><strong>Każdy kolejny miesiąc</strong> — 900 zł</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section__head" style="margin-top:22px;">
+          <h2>Strategia treści</h2>
+          <p>Opcjonalnie jako dodatek lub osobna usługa.</p>
+        </div>
+
+        <div class="pricing" style="grid-template-columns: 1fr;">
+          <div class="pricecard">
+            <ul class="list">
+              <li><strong>Audyt + plan 30 dni</strong> — 2500 zł</li>
+              <li><strong>Pełna strategia marki</strong> — 5000 zł</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="note">Kontakt: <a href="mailto:kontakt@quietrite.pl">kontakt@quietrite.pl</a></p>
       </div>
     </section>
 
@@ -224,7 +304,7 @@
           <div class="step">
             <div class="step__num">1</div>
             <h3>Brief</h3>
-            <p>Cel kampanii, produkt, grupa docelowa, komunikat, formaty.</p>
+            <p>Cel, produkt, komunikat, formaty, deadline.</p>
           </div>
           <div class="step">
             <div class="step__num">2</div>
@@ -265,12 +345,12 @@
 
         <details class="faq">
           <summary>Czy mogę użyć materiałów w Meta Ads / TikTok Ads?</summary>
-          <p>Tak — ustalamy zakres użycia (ads usage) w mailu. Najczęściej: 30 dni + opcja przedłużenia.</p>
+          <p>Tak — zakres Ads Usage jest w sekcji powyżej i doprecyzujemy go w mailu.</p>
         </details>
 
         <details class="faq">
           <summary>Czy muszę wysłać produkt?</summary>
-          <p>Jeśli wideo wymaga ujęć produktu — tak. Jeśli to format „talking head” + grafika — nie zawsze.</p>
+          <p>Jeśli wideo wymaga ujęć produktu — tak. Jeśli to format “talking head” + grafika — nie zawsze.</p>
         </details>
       </div>
     </section>
@@ -305,7 +385,7 @@
           </label>
 
           <button class="btn" type="submit">Wyślij</button>
-          <p class="small muted">Formularz otworzy Twoją pocztę (bez backendu). Jeśli chcesz formularz „na serwer”, dodamy Formspree.</p>
+          <p class="small muted">Formularz otworzy Twoją pocztę (bez backendu).</p>
         </form>
       </div>
     </section>

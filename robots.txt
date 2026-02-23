@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://quietrite.pl/sitemap.xml
+Host: quietrite.pl

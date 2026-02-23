@@ -2,425 +2,299 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#0b0c10" />
-  <meta name="color-scheme" content="dark" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#07080c" />
 
-  <title>QUIETRITE</title>
-  <meta name="description" content="UGC PERFORMANCE • HEALTH & SPORT. Hooki w pierwszych sekundach, precyzyjny przekaz i montaż pod wynik." />
+  <title>QUIETRITE — UGC Performance • Health & Sport</title>
+  <meta name="description" content="UGC Performance dla marek z branży zdrowie i sport. Hooki w pierwszych sekundach, montaż pod wynik, warianty i testy pod performance." />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://quietrite.pl/" />
+
+  <!-- Icons -->
+  <link rel="icon" href="./favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16.png" />
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+  <link rel="manifest" href="./manifest.webmanifest" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="QUIETRITE" />
-  <meta property="og:description" content="UGC PERFORMANCE • HEALTH & SPORT" />
-  <meta property="og:image" content="og-quietrite-1200x630.png" />
+  <meta property="og:site_name" content="QUIETRITE" />
+  <meta property="og:title" content="QUIETRITE — UGC Performance" />
+  <meta property="og:description" content="UGC Performance dla marek z branży zdrowie i sport. Hooki, montaż pod wynik, warianty i testy." />
+  <meta property="og:url" content="https://quietrite.pl/" />
+  <meta property="og:image" content="https://quietrite.pl/og-quietrite-1200x630.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="QUIETRITE — UGC Performance" />
+  <meta name="twitter:description" content="UGC Performance dla marek z branży zdrowie i sport." />
+  <meta name="twitter:image" content="https://quietrite.pl/og-quietrite-1200x630.png" />
 
-  <!-- Icons -->
-  <link rel="icon" href="favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png" />
-  <link rel="manifest" href="manifest.webmanifest" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-  <link rel="stylesheet" href="styles.css" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="./styles.css?v=1" />
 </head>
 
 <body>
-  <a class="skip" href="#start">Przejdź do treści</a>
+  <!-- Skip link -->
+  <a href="#content" style="
+    position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+  " onfocus="this.style.left='16px';this.style.top='16px';this.style.width='auto';this.style.height='auto';this.style.padding='10px 12px';this.style.background='rgba(0,0,0,.8)';this.style.color='white';this.style.borderRadius='12px';this.style.zIndex='9999';">
+    Przejdź do treści
+  </a>
 
-  <header class="topbar" id="top">
-    <div class="topbar__inner">
-      <a class="brand" href="#start" aria-label="QUIETRITE — start">
-        <img class="brand__mark" src="quietrite-mark.png" alt="" width="44" height="44" />
-        <span class="brand__text">QUIETRITE</span>
-      </a>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner container">
+      <div class="brand" aria-label="QUIETRITE">
+        <img src="./quietrite-logo.png" alt="QUIETRITE logo" width="44" height="44" />
+        <div class="brand-title">QUIETRITE</div>
+      </div>
 
-      <button class="menuBtn" id="menuBtn" type="button" aria-label="Otwórz menu" aria-expanded="false" aria-controls="nav">
-        <span class="menuBtn__icon" aria-hidden="true"></span>
+      <button id="menuBtn" class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menuPanel">
+        <!-- prosty burger -->
+        <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path fill="currentColor" d="M4 7h16v2H4V7zm0 6h16v2H4v-2zm0 6h16v2H4v-2z"/>
+        </svg>
       </button>
     </div>
-
-    <nav class="nav" id="nav" aria-label="Nawigacja">
-      <div class="nav__panel" role="dialog" aria-modal="true" aria-label="Menu">
-        <div class="nav__head">
-          <span class="nav__title">Menu</span>
-          <button class="nav__close" id="navClose" type="button" aria-label="Zamknij menu">×</button>
-        </div>
-
-        <a class="nav__link" href="#portfolio">Portfolio</a>
-        <a class="nav__link" href="#pakiety">Pakiety</a>
-        <a class="nav__link" href="#proces">Proces</a>
-        <a class="nav__link" href="#faq">FAQ</a>
-
-        <a class="nav__cta" href="#kontakt">Współpraca</a>
-      </div>
-
-      <button class="nav__backdrop" id="navBackdrop" type="button" aria-label="Zamknij menu"></button>
-    </nav>
   </header>
 
-  <main id="start">
+  <!-- Mobile menu panel -->
+  <div id="menuPanel" class="menu-panel" role="dialog" aria-label="Menu nawigacyjne">
+    <nav aria-label="Nawigacja">
+      <a href="#portfolio">Portfolio</a>
+      <a href="#pakiety">Pakiety</a>
+      <a href="#proces">Proces</a>
+      <a href="#faq">FAQ</a>
+      <a href="#wspolpraca">Współpraca</a>
+      <a href="#wyniki">Wyniki</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+  </div>
+
+  <main id="content">
     <!-- HERO -->
-    <section class="hero">
-      <div class="container hero__grid">
-        <div class="hero__content">
-          <div class="pill">UGC PERFORMANCE • HEALTH &amp; SPORT</div>
+    <section class="container" style="padding-top:34px;">
+      <div class="card pad" style="overflow:hidden;">
+        <p style="margin:0 0 10px 0; letter-spacing:.18em; text-transform:uppercase; color:rgba(200,168,90,.85); font-weight:800;">
+          UGC PERFORMANCE • HEALTH &amp; SPORT
+        </p>
 
-          <h1 class="hero__title">
-            UGC, które<br />
-            <span class="hero__titleAccent">sprzedaje.</span><br />
-            <span class="hero__titleSoft">Bez hałasu.</span>
-          </h1>
+        <h1 style="font-size: clamp(34px, 7vw, 56px); line-height:1.04; margin:0 0 14px 0;">
+          UGC, które sprzedaje.<br/>Bez hałasu.
+        </h1>
 
-          <p class="hero__lead">
-            Tworzę wideo reklamowe dla marek z branży zdrowie i sport.
-            Hooki w pierwszych sekundach, precyzyjny przekaz i montaż pod wynik.
-          </p>
+        <p style="max-width: 62ch; margin: 0 0 18px 0;">
+          Tworzę wideo reklamowe dla marek z branży zdrowie i sport.
+          Hooki w pierwszych sekundach, precyzyjny przekaz i montaż pod wynik.
+        </p>
 
-          <div class="hero__actions">
-            <a class="btn btn--gold" href="#portfolio">Zobacz portfolio</a>
-            <a class="btn btn--ghost" href="#kontakt">Napisz do mnie</a>
-          </div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:14px;">
+          <a href="#portfolio" style="
+            display:inline-flex; align-items:center; justify-content:center;
+            padding:12px 16px; border-radius:999px; text-decoration:none;
+            background: rgba(200,168,90,.95); color:#0b0c10; font-weight:900;
+            border: 1px solid rgba(0,0,0,.25);
+          ">Zobacz portfolio</a>
 
-          <div class="featureRow">
-            <div class="miniCard">
-              <div class="miniCard__title">UGC Ads</div>
-              <div class="miniCard__sub">Meta / TikTok / Shorts</div>
-            </div>
-            <div class="miniCard">
-              <div class="miniCard__title">Hooki</div>
-              <div class="miniCard__sub">1–3 sekundy = wynik</div>
-            </div>
-            <div class="miniCard">
-              <div class="miniCard__title">Warianty</div>
-              <div class="miniCard__sub">testy pod performance</div>
-            </div>
-          </div>
+          <a href="#kontakt" style="
+            display:inline-flex; align-items:center; justify-content:center;
+            padding:12px 16px; border-radius:999px; text-decoration:none;
+            background: rgba(255,255,255,.08); color: rgba(255,255,255,.92);
+            font-weight:800; border: 1px solid rgba(255,255,255,.14);
+          ">Napisz do mnie</a>
         </div>
 
-        <div class="hero__media">
-          <div class="logoCard">
-            <img class="logoCard__img" src="quietrite-logo.png" alt="QUIETRITE logo" />
-          </div>
-        </div>
-      </div>
-
-      <div class="heroGlow" aria-hidden="true"></div>
-    </section>
-
-    <!-- WYNIKI -->
-    <section class="section" id="wyniki">
-      <div class="container">
-        <h2 class="h2">Wyniki</h2>
-        <p class="muted">Ostatnie 30 dni • ruch organiczny</p>
-
-        <div class="grid2">
-          <article class="card ringCard reveal">
-            <div class="ringWrap">
-              <!-- Ring (SVG) -->
-              <svg class="ring" viewBox="0 0 240 240" width="260" height="260" aria-label="Wyniki — wyświetlenia">
-                <defs>
-                  <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#6B4DFF"/>
-                    <stop offset="100%" stop-color="#D645FF"/>
-                  </linearGradient>
-                </defs>
-
-                <circle class="ring__track" cx="120" cy="120" r="84"></circle>
-                <circle class="ring__progress" cx="120" cy="120" r="84"></circle>
-
-                <!-- label + number -->
-                <text class="ring__label" x="120" y="90" text-anchor="middle">Wyświetlenia</text>
-                <text class="ring__value" x="120" y="148" text-anchor="middle">23,650</text>
-              </svg>
-            </div>
-
-            <div class="legend">
-              <div class="legend__row">
-                <span class="dot dot--pink"></span>
-                <span class="legend__label">Obserwatorzy</span>
-                <span class="legend__val">31,9%</span>
-              </div>
-              <div class="legend__row">
-                <span class="dot dot--purple"></span>
-                <span class="legend__label">Osoby nieobserwujące</span>
-                <span class="legend__val">68,1%</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="card reveal">
-            <h3 class="h3">Co to znaczy?</h3>
-            <ul class="bullets">
-              <li>Duży udział nieobserwujących = content dociera szeroko.</li>
-              <li>To idealne pod performance UGC (hooki + szybkie CTA).</li>
-              <li>W praktyce: robimy warianty i testujemy to, co daje wynik.</li>
-            </ul>
-
-            <div class="divider"></div>
-
-            <div class="trust">
-              <div class="trust__item">
-                <div class="trust__big">20k+</div>
-                <div class="muted">wyświetleń miesięcznie</div>
-              </div>
-              <div class="trust__item">
-                <div class="trust__big">4.7k</div>
-                <div class="muted">najlepszy organic</div>
-              </div>
-              <div class="trust__item">
-                <div class="trust__big">High</div>
-                <div class="muted">średni watch time</div>
-              </div>
-            </div>
-          </article>
+        <div style="margin-top:18px; color:rgba(255,255,255,.70); font-size:13px; line-height:1.55;">
+          <div>UGC Ads • Meta / TikTok / Shorts</div>
+          <div>Hooki • 1–3 sekundy = wynik</div>
+          <div>Warianty • testy pod performance</div>
         </div>
       </div>
     </section>
 
     <!-- PORTFOLIO -->
-    <section class="section" id="portfolio">
-      <div class="container">
-        <h2 class="h2">Portfolio</h2>
-        <p class="muted">Wstaw tu swoje case’y / miniatury / linki.</p>
+    <section id="portfolio" class="container">
+      <div class="card pad">
+        <h2 style="font-size:28px;">Portfolio</h2>
+        <p>Wybrane realizacje + przykładowe formaty. (Tu możesz wkleić embed / miniatury.)</p>
 
-        <div class="grid3">
-          <a class="workCard reveal" href="#kontakt">
-            <div class="workCard__thumb"></div>
-            <div class="workCard__meta">
-              <div class="workCard__title">Case #1</div>
-              <div class="workCard__sub">UGC Ads • Meta</div>
-            </div>
-          </a>
-
-          <a class="workCard reveal" href="#kontakt">
-            <div class="workCard__thumb"></div>
-            <div class="workCard__meta">
-              <div class="workCard__title">Case #2</div>
-              <div class="workCard__sub">Hook test • TikTok</div>
-            </div>
-          </a>
-
-          <a class="workCard reveal" href="#kontakt">
-            <div class="workCard__thumb"></div>
-            <div class="workCard__meta">
-              <div class="workCard__title">Case #3</div>
-              <div class="workCard__sub">Shorts • YouTube</div>
-            </div>
-          </a>
+        <div style="display:grid; gap:14px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-top:14px;">
+          <div class="card pad" style="background:rgba(255,255,255,.04);">
+            <h3 style="margin:0 0 8px 0;">UGC Ads</h3>
+            <p style="margin:0;">Performance-first, szybki przekaz, CTA.</p>
+          </div>
+          <div class="card pad" style="background:rgba(255,255,255,.04);">
+            <h3 style="margin:0 0 8px 0;">Shorts / Reels</h3>
+            <p style="margin:0;">Dynamiczny montaż, retention, pętle.</p>
+          </div>
+          <div class="card pad" style="background:rgba(255,255,255,.04);">
+            <h3 style="margin:0 0 8px 0;">Hooki</h3>
+            <p style="margin:0;">Pierwsze 2 sekundy decydują o wyniku.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- PAKIETY -->
-    <section class="section" id="pakiety">
-      <div class="container">
-        <h2 class="h2">Pakiety UGC</h2>
-        <p class="muted">Proste, jasne, pod wynik.</p>
+    <section id="pakiety" class="container">
+      <div class="card pad">
+        <h2 style="font-size:28px;">Pakiety</h2>
+        <p>Przejrzyste pakiety pod stałą współpracę lub kampanię.</p>
 
-        <div class="pricing">
-          <article class="priceCard reveal">
-            <div class="priceCard__top">
-              <h3 class="priceCard__name">BASIC</h3>
-              <div class="priceCard__price">1100 zł</div>
-              <div class="priceCard__sub">1 UGC video</div>
-            </div>
-            <ul class="check">
-              <li>Scenariusz + hook</li>
-              <li>Wideo 9:16 (20–40s)</li>
-              <li>Napisy + montaż</li>
-            </ul>
-            <a class="btn btn--ghost w100" href="#kontakt">Wybieram BASIC</a>
-          </article>
-
-          <article class="priceCard priceCard--featured reveal">
-            <div class="badge">Najczęściej wybierany</div>
-            <div class="priceCard__top">
-              <h3 class="priceCard__name">PRO</h3>
-              <div class="priceCard__price">2500 zł</div>
-              <div class="priceCard__sub">3 UGC video</div>
-            </div>
-            <ul class="check">
-              <li>3 scenariusze + hooki</li>
-              <li>Wideo 9:16 (20–45s)</li>
-              <li>Napisy + montaż</li>
-              <li>Mini plan publikacji/ads</li>
-            </ul>
-            <a class="btn btn--gold w100" href="#kontakt">Wybieram PRO</a>
-          </article>
-
-          <article class="priceCard reveal">
-            <div class="priceCard__top">
-              <h3 class="priceCard__name">ELITE</h3>
-              <div class="priceCard__price">5000 zł</div>
-              <div class="priceCard__sub">6 wideo + strategia</div>
-            </div>
-            <ul class="check">
-              <li>6 wideo + test hooków</li>
-              <li>Warianty pod A/B</li>
-              <li>UGC pod Meta/TikTok Ads</li>
-              <li>2 rundy poprawek</li>
-              <li>Rekomendacje kreacji</li>
-            </ul>
-            <a class="btn btn--ghost w100" href="#kontakt">Wybieram ELITE</a>
-          </article>
-        </div>
-
-        <div class="grid2 mt24">
-          <article class="card reveal">
-            <h3 class="h3">Wykorzystanie w reklamach <span class="muted">(Ads Usage)</span></h3>
-            <div class="rows">
-              <div class="row"><span>30 dni</span><strong>1000 zł</strong></div>
-              <div class="row"><span>Każdy kolejny miesiąc</span><strong>900 zł</strong></div>
-            </div>
-            <p class="muted small">Dotyczy wykorzystania materiałów w kampaniach płatnych (Meta, TikTok, YouTube).</p>
-          </article>
-
-          <article class="card reveal">
-            <h3 class="h3">Strategia treści</h3>
-            <div class="rows">
-              <div class="row"><span>Audyt + plan 30 dni</span><strong>2500 zł</strong></div>
-              <div class="row"><span>Pełna strategia marki</span><strong>5000 zł</strong></div>
-            </div>
-          </article>
+        <div style="display:grid; gap:14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin-top:14px;">
+          <div class="card pad" style="background:rgba(255,255,255,.04);">
+            <h3 style="margin:0 0 8px 0;">Starter</h3>
+            <p style="margin:0;">2–4 kreacje / mies. + warianty hooków.</p>
+          </div>
+          <div class="card pad" style="background:rgba(255,255,255,.04);">
+            <h3 style="margin:0 0 8px 0;">Growth</h3>
+            <p style="margin:0;">6–10 kreacji / mies. + testy i iteracje.</p>
+          </div>
+          <div class="card pad" style="background:rgba(255,255,255,.04);">
+            <h3 style="margin:0 0 8px 0;">Scale</h3>
+            <p style="margin:0;">12+ kreacji / mies. + priorytet + biblioteka.</p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- PROCES -->
-    <section class="section" id="proces">
-      <div class="container">
-        <h2 class="h2">Proces</h2>
-        <p class="muted">Szybko, konkretnie, bez chaosu.</p>
+    <section id="proces" class="container">
+      <div class="card pad">
+        <h2 style="font-size:28px;">Proces</h2>
+        <p>Krótko: strategia → hooki → scenariusz → produkcja → montaż → iteracje.</p>
 
-        <div class="steps">
-          <div class="step reveal">
-            <div class="step__num">1</div>
-            <div>
-              <div class="step__title">Brief</div>
-              <div class="muted">Cel, oferta, grupa, platforma, styl.</div>
-            </div>
-          </div>
+        <ol style="margin:14px 0 0 18px; color:rgba(255,255,255,.70); line-height:1.7;">
+          <li>Brief i cele (platforma / KPI)</li>
+          <li>Hooki + angle’y (warianty pod test)</li>
+          <li>Scenariusz + plan ujęć</li>
+          <li>Nagranie / materiały</li>
+          <li>Montaż + formaty</li>
+          <li>Iteracja po wynikach</li>
+        </ol>
+      </div>
+    </section>
 
-          <div class="step reveal">
-            <div class="step__num">2</div>
-            <div>
-              <div class="step__title">Hooki i scenariusze</div>
-              <div class="muted">Warianty pod testy — od razu pod wynik.</div>
-            </div>
-          </div>
+    <!-- WYNIKI (Ring) -->
+    <section id="wyniki" class="container">
+      <div class="card pad">
+        <h2 style="font-size:28px; margin-bottom:6px;">Wyniki</h2>
+        <p>Ostatnie 30 dni • ruch organiczny</p>
 
-          <div class="step reveal">
-            <div class="step__num">3</div>
-            <div>
-              <div class="step__title">Produkcja + montaż</div>
-              <div class="muted">9:16, napisy, pacing, CTA.</div>
-            </div>
-          </div>
+        <div class="ringwrap">
+          <div class="ring" aria-label="Wykres wyświetleń">
+            <!-- Prosty ring SVG (możesz później podmienić na dokładny) -->
+            <svg viewBox="0 0 120 120" aria-hidden="true">
+              <!-- tło -->
+              <circle cx="60" cy="60" r="46" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="12" />
+              <!-- progress (przykład) -->
+              <circle cx="60" cy="60" r="46" fill="none"
+                      stroke="url(#grad)"
+                      stroke-width="12"
+                      stroke-linecap="round"
+                      stroke-dasharray="289"
+                      stroke-dashoffset="72" />
+              <defs>
+                <linearGradient id="grad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#6b5cff"/>
+                  <stop offset="100%" stop-color="#c846d8"/>
+                </linearGradient>
+              </defs>
+            </svg>
 
-          <div class="step reveal">
-            <div class="step__num">4</div>
-            <div>
-              <div class="step__title">Publikacja / Ads</div>
-              <div class="muted">Rekomendacje kreacji i kierunek testów.</div>
+            <div class="center">
+              <div class="label">Wyświetlenia</div>
+              <div class="value">23,650</div>
+              <div style="margin-top:14px; width:min(520px,92vw); display:flex; justify-content:space-between; gap:14px; color:rgba(255,255,255,.70); font-weight:700;">
+                <div>● Obserwatorzy</div>
+                <div style="color:rgba(255,255,255,.88);">31,9%</div>
+              </div>
+              <div style="margin-top:10px; width:min(520px,92vw); display:flex; justify-content:space-between; gap:14px; color:rgba(255,255,255,.70); font-weight:700;">
+                <div style="opacity:.9;">● Osoby nieobserwujące</div>
+                <div style="color:rgba(255,255,255,.88);">68,1%</div>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- 5B / 6A / 7A / 8 -->
-        <div class="grid2 mt24">
-          <article class="card reveal">
-            <h3 class="h3">Social proof</h3>
-            <p class="muted small">Dodaj 2–4 krótkie opinie (1–2 zdania).</p>
-            <div class="quotes">
-              <div class="quote">„Wynik w adsach poprawił się po 7 dniach testów.”</div>
-              <div class="quote">„Świetne hooki i tempo. Zero lania wody.”</div>
-            </div>
-          </article>
-
-          <article class="card reveal">
-            <h3 class="h3">Klienci / brandy</h3>
-            <p class="muted small">Wstaw logotypy klientów (opcjonalnie).</p>
-            <div class="logos">
-              <div class="logoSlot">LOGO</div>
-              <div class="logoSlot">LOGO</div>
-              <div class="logoSlot">LOGO</div>
-              <div class="logoSlot">LOGO</div>
-            </div>
-          </article>
+        <div class="card pad" style="background:rgba(255,255,255,.04); margin-top:18px;">
+          <h3 style="margin:0 0 10px 0;">Co to znaczy?</h3>
+          <ul style="margin:0 0 0 18px; color:rgba(255,255,255,.70); line-height:1.7;">
+            <li>Duży udział nieobserwujących = content dociera szeroko.</li>
+            <li>Idealne pod performance (hooki + szybkie CTA).</li>
+          </ul>
         </div>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section class="section" id="faq">
-      <div class="container">
-        <h2 class="h2">FAQ</h2>
+    <section id="faq" class="container">
+      <div class="card pad">
+        <h2 style="font-size:28px;">FAQ</h2>
 
-        <div class="faq">
-          <details class="faqItem reveal">
-            <summary>Jaki czas realizacji?</summary>
-            <p>Zwykle 3–7 dni roboczych (zależnie od pakietu i liczby wariantów).</p>
-          </details>
-
-          <details class="faqItem reveal">
-            <summary>Ile poprawek?</summary>
-            <p>W ELITE masz 2 rundy poprawek. W innych pakietach — ustalamy w briefie.</p>
-          </details>
-
-          <details class="faqItem reveal">
-            <summary>Czy robisz testy hooków?</summary>
-            <p>Tak — szczególnie w ELITE. Budujemy warianty pod A/B i dopalamy to, co działa.</p>
-          </details>
+        <div style="display:grid; gap:12px; margin-top:14px;">
+          <div class="card pad" style="background:rgba(255,255,255,.04);">
+            <h3 style="margin:0 0 8px 0;">Ile trwa realizacja?</h3>
+            <p style="margin:0;">Zwykle 3–7 dni roboczych w zależności od liczby wariantów.</p>
+          </div>
+          <div class="card pad" style="background:rgba(255,255,255,.04);">
+            <h3 style="margin:0 0 8px 0;">Czy robisz wersje pod testy?</h3>
+            <p style="margin:0;">Tak — hooki/angle’y jako warianty, gotowe pod A/B testy.</p>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <!-- WSPÓŁPRACA -->
+    <section id="wspolpraca" class="container">
+      <div class="card pad">
+        <h2 style="font-size:28px;">Współpraca</h2>
+        <p>Jeśli chcesz stałą produkcję pod performance — działamy w cyklu tygodniowym/miesięcznym.</p>
       </div>
     </section>
 
     <!-- KONTAKT -->
-    <section class="section" id="kontakt">
-      <div class="container">
-        <div class="contactCard reveal">
-          <div>
-            <h2 class="h2">Kontakt</h2>
-            <p class="muted">Najlepiej napisz od razu: branża, produkt, cel kampanii i budżet.</p>
+    <section id="kontakt" class="container" style="padding-bottom:54px;">
+      <div class="card pad">
+        <h2 style="font-size:28px;">Kontakt</h2>
+        <p>Napisz i podeśl brief + linki do reklam/produktów. Odpowiem z propozycją pakietu i terminem.</p>
 
-            <div class="contactList">
-              <a class="contactLink" href="mailto:quietcaliber@proton.me">quietcaliber@proton.me</a>
-              <a class="contactLink" href="https://quietcaliber.carrd.co" target="_blank" rel="noreferrer">quietcaliber.carrd.co</a>
-              <a class="contactLink" href="https://instagram.com/quietcaliber" target="_blank" rel="noreferrer">Instagram: @quietcaliber</a>
-            </div>
-          </div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:14px;">
+          <a href="mailto:kontakt@quietrite.pl" style="
+            display:inline-flex; align-items:center; justify-content:center;
+            padding:12px 16px; border-radius:999px; text-decoration:none;
+            background: rgba(200,168,90,.95); color:#0b0c10; font-weight:900;
+            border: 1px solid rgba(0,0,0,.25);
+          ">kontakt@quietrite.pl</a>
 
-          <div class="signature">
-            <div class="sigLine"></div>
-            <div class="sigName">Krystian Stępniak</div>
-          </div>
+          <a href="#portfolio" style="
+            display:inline-flex; align-items:center; justify-content:center;
+            padding:12px 16px; border-radius:999px; text-decoration:none;
+            background: rgba(255,255,255,.08); color: rgba(255,255,255,.92);
+            font-weight:800; border: 1px solid rgba(255,255,255,.14);
+          ">Zobacz portfolio</a>
         </div>
       </div>
     </section>
 
-    <footer class="footer">
-      <div class="container footer__inner">
-        <span class="muted small">© <span id="year"></span> QUIETRITE</span>
-        <a class="muted small" href="#top">Do góry ↑</a>
-      </div>
+    <footer class="container" style="padding: 18px 0 34px 0; color:rgba(255,255,255,.45); font-size:12px;">
+      © <span id="year"></span> QUIETRITE
     </footer>
   </main>
 
-  <!-- Sticky CTA (premium) -->
-  <div class="stickyCta" id="stickyCta" aria-hidden="true">
-    <a class="btn btn--gold btn--sm" href="#kontakt">Napisz do mnie</a>
-  </div>
-
-  <script src="script.js" defer></script>
+  <!-- JS -->
+  <script src="./script.js?v=1" defer></script>
+  <script>
+    // tylko rok w stopce (bez wpływu na resztę)
+    document.addEventListener("DOMContentLoaded", () => {
+      const y = document.getElementById("year");
+      if (y) y.textContent = new Date().getFullYear();
+    });
+  </script>
 </body>
 </html>

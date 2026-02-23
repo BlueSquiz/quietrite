@@ -58,9 +58,7 @@ if (form) {
     const email = encodeURIComponent(data.get("email") || "");
     const message = encodeURIComponent(data.get("message") || "");
 
-    const subject = encodeURIComponent(
-      `QUIETRITE — Współpraca (${decodeURIComponent(name)})`
-    );
+    const subject = encodeURIComponent(`QUIETRITE — Współpraca (${decodeURIComponent(name)})`);
     const body = encodeURIComponent(
       `Imię/Marka: ${decodeURIComponent(name)}\n` +
       `E-mail: ${decodeURIComponent(email)}\n\n` +
@@ -78,7 +76,7 @@ if (form) {
   const text = base + gap;
 
   let i = 0;
-  const speedMs = 220; // wolniej: 300–450
+  const speedMs = 220;
 
   document.addEventListener("visibilitychange", () => {
     if (!document.hidden) document.title = base;
@@ -120,9 +118,11 @@ if (form) {
   segNF.style.strokeDasharray = `${nfLen} ${C - nfLen}`;
   segF.style.strokeDasharray = `${fLen} ${C - fLen}`;
 
+  // follower segment starts after NF
   segF.style.transform = `rotate(${(nonFollowersPct / 100) * 360}deg)`;
   segF.style.transformOrigin = "60px 60px";
 
+  // animate in
   segNF.style.strokeDashoffset = `${C}`;
   segF.style.strokeDashoffset = `${C}`;
 
@@ -135,4 +135,68 @@ if (form) {
 
   const ring = card.querySelector(".ring");
   if (ring) ring.classList.add("ring--float");
+})();
+
+/* ===== Smooth scroll (Option 2, iOS-safe) ===== */
+(function smoothAnchors(){
+  const headerOffset = () => window.matchMedia("(max-width: 920px)").matches ? 74 : 84;
+
+  document.querySelectorAll('a[href^="#"]').forEach((a) => {
+    a.addEventListener("click", (e) => {
+      const id = a.getAttribute("href");
+      if (!id || id === "#") return;
+
+      // allow default for #top (we handle it too)
+      const el = document.querySelector(id);
+      if (!el) return;
+
+      e.preventDefault();
+      const y = el.getBoundingClientRect().top + window.pageYOffset - headerOffset();
+      window.scrollTo({ top: y, behavior: "smooth" });
+    });
+  });
+})();
+
+/* ===== Reveal on scroll (5B) ===== */
+(function revealOnScroll(){
+  if (!("IntersectionObserver" in window)) return;
+
+  const els = document.querySelectorAll(".section, .hero, .trust, .footer");
+  els.forEach(el => el.classList.add("reveal"));
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add("is-in");
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  els.forEach(el => io.observe(el));
+})();
+
+/* ===== Copy email button (7A) ===== */
+(function copyEmail(){
+  const btn = document.querySelector(".copyBtn");
+  const toast = document.getElementById("copyToast");
+  if (!btn) return;
+
+  btn.addEventListener("click", async () => {
+    const value = btn.dataset.copy || "";
+    try{
+      await navigator.clipboard.writeText(value);
+      if (toast) toast.textContent = "Skopiowano ✅";
+      setTimeout(() => { if (toast) toast.textContent = ""; }, 1400);
+    }catch(e){
+      const ta = document.createElement("textarea");
+      ta.value = value;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      ta.remove();
+      if (toast) toast.textContent = "Skopiowano ✅";
+      setTimeout(() => { if (toast) toast.textContent = ""; }, 1400);
+    }
+  });
 })();

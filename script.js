@@ -1,121 +1,159 @@
-/* ================= YEAR ================= */
-const year = document.getElementById("year");
-if (year) year.textContent = new Date().getFullYear();
+(() => {
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
-/* ================= MOBILE MENU (naprawione + overlay + zamykanie) ================= */
-const burger = document.getElementById("burger") || document.querySelector(".burger, .menu-btn, .nav__burger");
-const mobileNav = document.getElementById("mobileNav") || document.querySelector("#mobileNav, .mobile-nav, .nav__mobile");
+  // ---------------------------
+  // 1) Logo fallback (quietrite-logo.png)
+  // ---------------------------
+  function fixLogoIfMissing() {
+    const candidates = [
+      'img[alt*="QUIETRITE" i]',
+      'img[alt*="Quietrite" i]',
+      '.brand img',
+      '.logo img',
+      'header img',
+      '.site-header img'
+    ];
 
-let overlay = document.querySelector(".navOverlay");
-if (!overlay) {
-  overlay = document.createElement("div");
-  overlay.className = "navOverlay";
-  document.body.appendChild(overlay);
-}
+    for (const sel of candidates) {
+      const img = $(sel);
+      if (!img) continue;
 
-function openMenu() {
-  if (!mobileNav) return;
-  mobileNav.classList.add("is-open");
-  overlay.classList.add("is-open");
-  document.body.style.overflow = "hidden";
-}
+      // jeśli nie ma src albo jest "broken", podstaw prawidłowy plik z root repo
+      const hasSrc = img.getAttribute("src") && img.getAttribute("src").trim().length > 0;
+      const isBroken = img.complete && img.naturalWidth === 0;
 
-function closeMenu() {
-  if (!mobileNav) return;
-  mobileNav.classList.remove("is-open");
-  overlay.classList.remove("is-open");
-  document.body.style.overflow = "";
-}
+      if (!hasSrc || isBroken) {
+        img.src = "./quietrite-logo.png?v=1";
+      }
 
-function toggleMenu() {
-  if (!mobileNav) return;
-  mobileNav.classList.contains("is-open") ? closeMenu() : openMenu();
-}
+      // wymuś bezpieczne dopasowanie
+      img.loading = img.loading || "eager";
+      img.decoding = img.decoding || "async";
+      img.style.objectFit = "contain";
+      img.style.display = "block";
+      break;
+    }
+  }
 
-if (burger && mobileNav) {
-  burger.addEventListener("click", toggleMenu);
-  overlay.addEventListener("click", closeMenu);
+  // ---------------------------
+  // 2) Burger/menu toggle (fallback dla różnych nazw)
+  // ---------------------------
+  function setupMenu() {
+    const btn =
+      $('#menuBtn') ||
+      $('#menuToggle') ||
+      $('#burger') ||
+      $('.menu-btn') ||
+      $('.menu-toggle') ||
+      $('button[aria-label*="menu" i]') ||
+      $('button[aria-controls]');
 
-  // ESC zamyka
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeMenu();
-  });
+    const panel =
+      $('#menuPanel') ||
+      $('#mobileMenu') ||
+      $('#mobileNav') ||
+      $('.menu-panel') ||
+      $('.mobile-menu') ||
+      $('nav');
 
-  // klik w link w menu zamyka menu
-  mobileNav.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener("click", closeMenu);
-  });
-}
+    if (!btn || !panel) return;
 
-/* ================= SMOOTH SCROLL (bez przeskoku + offset nav) ================= */
-(function () {
-  const headerOffset = () => (window.innerWidth < 920 ? 74 : 84);
+    // ARIA
+    if (!btn.hasAttribute("aria-expanded")) btn.setAttribute("aria-expanded", "false");
+    if (!btn.getAttribute("aria-controls")) {
+      // jeśli panel ma id, podepnij
+      if (panel.id) btn.setAttribute("aria-controls", panel.id);
+    }
 
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener("click", (e) => {
-      const id = a.getAttribute("href");
-      if (!id || id.length < 2) return;
+    const OPEN_CLASS = "is-open";
 
-      const el = document.querySelector(id);
-      if (!el) return;
+    const open = () => {
+      panel.classList.add(OPEN_CLASS);
+      btn.classList.add(OPEN_CLASS);
+      btn.setAttribute("aria-expanded", "true");
+      document.documentElement.classList.add("menu-open");
+      document.body.classList.add("menu-open");
+    };
 
+    const close = () => {
+      panel.classList.remove(OPEN_CLASS);
+      btn.classList.remove(OPEN_CLASS);
+      btn.setAttribute("aria-expanded", "false");
+      document.documentElement.classList.remove("menu-open");
+      document.body.classList.remove("menu-open");
+    };
+
+    const toggle = () => {
+      const isOpen = panel.classList.contains(OPEN_CLASS);
+      isOpen ? close() : open();
+    };
+
+    // klik na przycisk
+    btn.addEventListener("click", (e) => {
       e.preventDefault();
-
-      const y = el.getBoundingClientRect().top + window.pageYOffset - headerOffset();
-      window.scrollTo({ top: y, behavior: "smooth" });
+      e.stopPropagation();
+      toggle();
     });
-  });
-})();
 
-/* ================= REVEAL ON SCROLL ================= */
-(function () {
-  const els = document.querySelectorAll(".section, .hero, .card, .grid, .ringwrap");
-  els.forEach(el => el.classList.add("reveal"));
-
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add("is-in");
+    // klik poza menu -> zamknij
+    document.addEventListener("click", (e) => {
+      const isOpen = panel.classList.contains(OPEN_CLASS);
+      if (!isOpen) return;
+      const target = e.target;
+      if (panel.contains(target) || btn.contains(target)) return;
+      close();
     });
-  }, { threshold: 0.12 });
 
-  els.forEach(el => io.observe(el));
-})();
+    // ESC -> zamknij
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") close();
+    });
 
-/* ================= FLOATING TAB TITLE ================= */
-(function () {
-  const base = "QUIETRITE — UGC PERFORMANCE";
-  const gap = "   •   ";
-  const text = base + gap;
-  let i = 0;
+    // klik w link w menu -> zamknij (na mobile)
+    $$('#' + panel.id + ' a[href^="#"], .menu-panel a[href^="#"], .mobile-menu a[href^="#"], nav a[href^="#"]')
+      .forEach((a) => a.addEventListener("click", () => close()));
+  }
 
-  setInterval(() => {
-    document.title = text.slice(i) + text.slice(0, i);
-    i = (i + 1) % text.length;
-  }, 220);
-})();
+  // ---------------------------
+  // 3) Smooth scroll z offsetem pod sticky header
+  // ---------------------------
+  function setupSmoothScroll() {
+    const getOffset = () => {
+      // spróbuj znaleźć header
+      const header = $('header') || $('.site-header') || $('.topbar');
+      if (header && header.offsetHeight) return header.offsetHeight + 12;
+      return window.innerWidth < 920 ? 74 : 84;
+    };
 
-/* ================= RESULTS RING ANIMATION ================= */
-(function () {
-  const wrap = document.querySelector(".ringwrap");
-  if (!wrap) return;
+    $$('a[href^="#"]').forEach((a) => {
+      a.addEventListener("click", (e) => {
+        const href = a.getAttribute("href");
+        if (!href || href.length < 2) return;
 
-  const nf = 68.1; // osoby nieobserwujące
-  const f = 31.9;  // obserwatorzy
+        const el = document.querySelector(href);
+        if (!el) return;
 
-  const r = 46;
-  const C = 2 * Math.PI * r;
+        e.preventDefault();
 
-  const segNF = document.querySelector(".ring__seg--nf");
-  const segF = document.querySelector(".ring__seg--f");
-  if (!segNF || !segF) return;
+        const y = el.getBoundingClientRect().top + window.pageYOffset - getOffset();
+        window.scrollTo({ top: y, behavior: "smooth" });
 
-  const nfLen = C * (nf / 100);
-  const fLen = C * (f / 100);
+        // zaktualizuj hash po scrollu (żeby działał back)
+        history.pushState(null, "", href);
+      });
+    });
+  }
 
-  requestAnimationFrame(() => {
-    segNF.style.strokeDasharray = `${C}`;
-    segF.style.strokeDasharray = `${C}`;
-    segNF.style.strokeDashoffset = `${C - nfLen}`;
-    segF.style.strokeDashoffset = `${C - fLen}`;
+  // ---------------------------
+  // Init
+  // ---------------------------
+  document.addEventListener("DOMContentLoaded", () => {
+    fixLogoIfMissing();
+    setupMenu();
+    setupSmoothScroll();
   });
+
+  // logo może się wczytać później
+  window.addEventListener("load", fixLogoIfMissing);
 })();

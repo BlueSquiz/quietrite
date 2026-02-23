@@ -1,6 +1,7 @@
 const year = document.getElementById("year");
 if (year) year.textContent = new Date().getFullYear();
 
+/* ===== Mobile menu (iOS-safe) ===== */
 const burger = document.getElementById("burger");
 const mobileNav = document.getElementById("mobileNav");
 
@@ -8,6 +9,7 @@ function closeMenu() {
   if (!burger || !mobileNav) return;
   burger.setAttribute("aria-expanded", "false");
   mobileNav.classList.remove("is-open");
+  mobileNav.setAttribute("aria-hidden", "true");
 }
 
 function toggleMenu() {
@@ -15,23 +17,28 @@ function toggleMenu() {
   const expanded = burger.getAttribute("aria-expanded") === "true";
   burger.setAttribute("aria-expanded", String(!expanded));
   mobileNav.classList.toggle("is-open", !expanded);
+  mobileNav.setAttribute("aria-hidden", String(expanded));
+}
+
+function onBurger(e) {
+  e.preventDefault();
+  e.stopPropagation();
+  toggleMenu();
 }
 
 if (burger && mobileNav) {
-  burger.addEventListener("click", (e) => {
-    e.stopPropagation();
-    toggleMenu();
-  });
+  burger.addEventListener("click", onBurger, { passive: false });
+  burger.addEventListener("touchend", onBurger, { passive: false });
 
   mobileNav.querySelectorAll("a").forEach((a) => {
     a.addEventListener("click", () => closeMenu());
+    a.addEventListener("touchend", () => closeMenu(), { passive: true });
   });
 
   document.addEventListener("click", (e) => {
     if (!mobileNav.classList.contains("is-open")) return;
-    const target = e.target;
-    if (target === burger || burger.contains(target)) return;
-    if (target === mobileNav || mobileNav.contains(target)) return;
+    if (burger.contains(e.target)) return;
+    if (mobileNav.contains(e.target)) return;
     closeMenu();
   });
 
@@ -40,7 +47,7 @@ if (burger && mobileNav) {
   });
 }
 
-// mailto form
+/* ===== Mailto form ===== */
 const form = document.getElementById("contactForm");
 if (form) {
   form.addEventListener("submit", (e) => {
@@ -64,14 +71,14 @@ if (form) {
   });
 }
 
-// --- Floating tab title (marquee) ---
+/* ===== Floating tab title (Option 1) ===== */
 (function floatingTitle() {
   const base = "QUIETRITE — UGC premium";
   const gap = "   •   ";
   const text = base + gap;
 
   let i = 0;
-  const speedMs = 220;
+  const speedMs = 220; // wolniej: 300–450
 
   document.addEventListener("visibilitychange", () => {
     if (!document.hidden) document.title = base;
@@ -83,7 +90,7 @@ if (form) {
   }, speedMs);
 })();
 
-// ===== Animated results ring (SVG) =====
+/* ===== Animated results ring (SVG) ===== */
 (function resultsRing() {
   const card = document.querySelector(".ringcard");
   if (!card) return;

@@ -674,4 +674,4 @@ button{font:inherit}
   .donut__seg{transition:none !important}
 }
 
-.price-card--featured .badge{max-width:60%; white-space:nowrap}
+.price-card--featured .price-card__top{padding-top:40px}

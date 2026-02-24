@@ -673,3 +673,5 @@ button{font:inherit}
   [data-reveal]{transition:none !important}
   .donut__seg{transition:none !important}
 }
+
+.price-card--featured .price-card__top{padding-top:40px}

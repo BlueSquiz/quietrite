@@ -704,3 +704,11 @@ button{font:inherit}
   object-fit: cover;
   display: block;
 }
+
+.work--video {
+  display: flex;
+}
+
+.work--video .work__thumb {
+  flex: 1;
+}

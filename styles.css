@@ -693,23 +693,12 @@ button{font:inherit}
 .form-note{margin:0}
 .hp{position:absolute; left:-9999px; width:1px; height:1px; opacity:0}
 
-.work--video {
-  grid-row: span 2; /* karta będzie wyższa */
-}
-
-/* VIDEO tile – bulletproof */
 .work--video .work__thumb{
-  position: relative;
   overflow: hidden;
   border-radius: 20px;
-  padding: 0 !important;
-  aspect-ratio: 9 / 16;   /* film pionowy */
-  min-height: 320px;      /* żeby na desktopie nie był “pasek” */
 }
 
-.work--video .work__thumb > video{
-  position: absolute;
-  inset: 0;
+.work--video video{
   width: 100%;
   height: 100%;
   object-fit: cover;

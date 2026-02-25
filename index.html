@@ -345,15 +345,39 @@
         <p class="section__subtitle">Napisz — wrócę z propozycją i terminami.</p>
 
         <div class="contact">
-          <a class="contact__item" href="mailto:kontakt@quietrite.pl">
-            <span class="contact__k">E-mail</span>
-            <span class="contact__v">kontakt@quietrite.pl</span>
-          </a>
-          <a class="contact__item" href="#" onclick="return false;">
-            <span class="contact__k">Instagram</span>
-            <span class="contact__v">@quietrite</span>
-          </a>
-        </div>
+  <form class="brief-form" action="https://formspree.io/f/xdalywzz" method="POST">
+    <label class="field">
+      <span class="field__label">E-mail *</span>
+      <input class="field__input" type="email" name="email" autocomplete="email" required />
+    </label>
+
+    <label class="field">
+      <span class="field__label">Firma *</span>
+      <input class="field__input" type="text" name="company" autocomplete="organization" required />
+    </label>
+
+    <label class="field">
+      <span class="field__label">Cel kampanii *</span>
+      <select class="field__input" name="goal" required>
+        <option value="" selected disabled>Wybierz…</option>
+        <option value="sprzedaz">Sprzedaż</option>
+        <option value="leady">Leady</option>
+        <option value="zasieg">Zasięg</option>
+      </select>
+    </label>
+
+    <label class="field">
+      <span class="field__label">Opis projektu *</span>
+      <textarea class="field__input field__textarea" name="message" rows="6" required></textarea>
+    </label>
+
+    <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" />
+
+    <button class="btn btn--primary btn--full" type="submit">Wyślij brief</button>
+
+    <p class="form-note muted">Odpowiem na podany e-mail.</p>
+  </form>
+</div>
 
         <footer class="footer">
           <div class="footer__line"></div>

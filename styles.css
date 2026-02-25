@@ -693,11 +693,15 @@ button{font:inherit}
 .form-note{margin:0}
 .hp{position:absolute; left:-9999px; width:1px; height:1px; opacity:0}
 
+.work--video {
+  grid-row: span 2; /* karta będzie wyższa */
+}
+
 .work--video .work__thumb {
   position: relative;
   overflow: hidden;
   border-radius: 20px;
-  aspect-ratio: 9 / 16; /* jeśli poziomy */
+  aspect-ratio: 9 / 16; /* pion */
 }
 
 .work--video video {

@@ -714,3 +714,8 @@ button{font:inherit}
   object-fit: cover;
   object-position: center;
 }
+
+/* Kontrolowana wysokość kafelka video */
+.work--video .work__thumb{
+  height: 220px;
+}

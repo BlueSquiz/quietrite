@@ -712,6 +712,6 @@ button{font:inherit}
 /* Mobile size */
 @media (max-width: 768px){
   .work--video .work__thumb{
-    height: 120px;        /* telefon */
+    height: 200px;        /* telefon */
   }
 }

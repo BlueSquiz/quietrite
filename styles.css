@@ -675,3 +675,20 @@ button{font:inherit}
 }
 
 .price-card--featured .price-card__top{padding-top:40px}
+
+.brief-form{display:grid; gap:12px; max-width:680px}
+.field{display:grid; gap:8px}
+.field__label{font-weight:800; color: rgba(255,255,255,.70); font-size:14px}
+.field__input{
+  width:100%;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  color: rgba(255,255,255,.94);
+  padding:14px 14px;
+  outline:none;
+}
+.field__input:focus{border-color: rgba(215,180,106,.35); box-shadow:0 0 0 3px rgba(215,180,106,.12)}
+.field__textarea{resize:vertical; min-height:140px}
+.form-note{margin:0}
+.hp{position:absolute; left:-9999px; width:1px; height:1px; opacity:0}

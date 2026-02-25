@@ -701,6 +701,12 @@ button{font:inherit}
   border-radius: 20px;
 }
 
+@media (max-width: 768px){
+  .work--video .work__thumb{
+    height: 140px;
+  }
+}
+
 .work--video video{
   width: 100%;
   height: 100%;

@@ -696,15 +696,9 @@ button{font:inherit}
 
 /* Final clean video tile */
 .work--video .work__thumb{
-  height: 240px;      /* tu zmieniasz wielkość */
+  height: 200px;          /* desktop */
   overflow: hidden;
   border-radius: 20px;
-}
-
-@media (max-width: 768px){
-  .work--video{
-    height: auto !important;
-  }
 }
 
 .work--video video{
@@ -713,4 +707,11 @@ button{font:inherit}
   object-fit: cover;
   object-position: center;
   display: block;
+}
+
+/* Mobile size */
+@media (max-width: 768px){
+  .work--video .work__thumb{
+    height: 120px;        /* telefon */
+  }
 }

@@ -703,7 +703,11 @@ button{font:inherit}
 
 @media (max-width: 768px){
   .work--video .work__thumb{
-    height: 100px;
+    height: 110px !important;
+    min-height: 110px !important;
+  }
+  .work--video video{
+    height: 100% !important;
   }
 }
 

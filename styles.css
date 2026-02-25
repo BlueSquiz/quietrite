@@ -7,7 +7,7 @@
   --text: rgba(255,255,255,.94);
   --muted: rgba(255,255,255,.64);
   --muted2: rgba(255,255,255,.52);
-  
+
   --gold:#d7b46a;
   --gold2:#b99038;
 
@@ -696,7 +696,7 @@ button{font:inherit}
 
 /* Final clean video tile */
 .work--video .work__thumb{
-  height: 170px;      /* tu zmieniasz wielkość */
+  height: 220px;      /* tu zmieniasz wielkość */
   overflow: hidden;
   border-radius: 20px;
 }

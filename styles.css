@@ -696,7 +696,7 @@ button{font:inherit}
 
 /* Final clean video tile */
 .work--video .work__thumb{
-  height: 200px;      /* tu zmieniasz wielkość */
+  height: 130px;      /* tu zmieniasz wielkość */
   overflow: hidden;
   border-radius: 20px;
 }

@@ -693,10 +693,16 @@ button{font:inherit}
 .form-note{margin:0}
 .hp{position:absolute; left:-9999px; width:1px; height:1px; opacity:0}
 
+.work--video .work__thumb {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  aspect-ratio: 16 / 9; /* jeśli poziomy */
+}
+
 .work--video video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 20px;
   display: block;
 }

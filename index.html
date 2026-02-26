@@ -2,44 +2,54 @@
 <html lang="pl">
 <head>
   <meta charset="utf-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self' mailto: https://formspree.io; img-src 'self' data:; style-src 'self'; script-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' https://formspree.io; manifest-src 'self'; upgrade-insecure-requests;">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- CSP (meta) — GitHub Pages: pozwalamy na JSON-LD (unsafe-inline) + Formspree -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self' https://formspree.io; img-src 'self' data:; style-src 'self'; script-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' https://formspree.io; manifest-src 'self'; upgrade-insecure-requests;">
+
   <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="color-scheme" content="dark light" />
 
   <title>Quietrite — UGC Ads dla marek Health &amp; Sport</title>
-  <meta name="description" content="Tworzę wideo reklamowe dla marek z branży zdrowie i sport. Hooki w pierwszych sekundach, precyzyjny przekaz i montaż pod wynik. Zobacz portfolio. Napisz do mnie." />
+  <meta name="description" content="Tworzę skuteczne UGC dla marek health &amp; sport. Meta, TikTok, Shorts. Mocne hooki, testy wariantów i montaż pod performance.">
   <meta name="theme-color" content="#0B0B10" />
 
   <link rel="canonical" href="https://quietrite.pl/" />
 
   <!-- Icons -->
   <link rel="icon" href="favicon.ico" sizes="any" />
-  <link rel="icon" type="image/png" sizes="32x32" href="icon-32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="icon-16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
   <!-- PWA -->
   <link rel="manifest" href="manifest.webmanifest" />
 
-  <!-- Open Graph -->
+  <!-- Open Graph / Social -->
   <meta property="og:site_name" content="QUIETRITE" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="HEALTH &amp; SPORT • QUIETRITE • UGC PERFORMANCE" />
-  <meta property="og:description" content="Tworzę wideo reklamowe dla marek z branży zdrowie i sport. Hooki w pierwszych sekundach, precyzyjny przekaz i montaż pod wynik." />
   <meta property="og:url" content="https://quietrite.pl/" />
-  <meta property="og:image" content="https://quietrite.pl/quietrite-og.jpg" />
+  <meta property="og:title" content="Quietrite — UGC Ads dla marek Health &amp; Sport" />
+  <meta property="og:description" content="Tworzę skuteczne UGC dla marek health &amp; sport. Meta, TikTok, Shorts. Mocne hooki, testy wariantów i montaż pod performance." />
+  <meta property="og:image" content="https://quietrite.pl/og-quietrite-1200x630.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="pl_PL" />
+  <meta property="og:image:alt" content="Quietrite — UGC Ads dla marek Health & Sport" />
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="QUIETRITE — UGC Performance" />
-  <meta name="twitter:description" content="UGC Ads dla marek Health &amp; Sport. Hooki + montaż pod wynik." />
-  <meta name="twitter:image" content="https://quietrite.pl/quietrite-og.jpg" />
+  <meta name="twitter:title" content="Quietrite — UGC Ads dla marek Health &amp; Sport" />
+  <meta name="twitter:description" content="Tworzę skuteczne UGC dla marek health &amp; sport. Meta, TikTok, Shorts. Mocne hooki, testy wariantów i montaż pod performance." />
+  <meta name="twitter:image" content="https://quietrite.pl/og-quietrite-1200x630.png" />
+  <meta name="twitter:image:alt" content="Quietrite — UGC Ads dla marek Health & Sport" />
 
-  <link rel="preload" href="styles.css" as="style" />
-  <link rel="stylesheet" href="styles.css" />
-  <script src="script.js" defer></script>
+  <!-- Perf -->
+  <link rel="preload" href="styles.css?v=10" as="style">
+  <link rel="preload" href="quietrite-logo.png" as="image" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css?v=10">
+  <link rel="preload" href="script.js?v=10" as="script">
+  <script src="script.js?v=10" defer></script>
 </head>
 
 <body>
@@ -47,106 +57,95 @@
 
   <header class="header" id="top">
     <div class="container header__inner">
-      <a class="brand" href="#top" aria-label="QUIETRITE — góra strony">
+      <a class="brand" href="#top" aria-label="QUIETRITE - start">
         <span class="brand__badge" aria-hidden="true">
-          <img class="brand__logo" src="quietrite-logo.png" alt="" />
+          <img class="brand__logo" src="quietrite-logo.png" alt="" width="44" height="44" fetchpriority="high" decoding="async" />
         </span>
         <span class="brand__name">QUIETRITE</span>
       </a>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Otwórz menu" aria-expanded="false" aria-controls="nav">
+      <button class="menu-toggle" id="menuToggle" type="button"
+        aria-controls="siteNav" aria-expanded="false" aria-label="Otwórz menu">
         <span class="menu-toggle__lines" aria-hidden="true"></span>
       </button>
 
-      <nav class="nav" id="nav" data-state="closed" aria-label="Nawigacja">
+      <nav class="nav" id="siteNav" data-state="closed" aria-label="Nawigacja">
         <ul class="nav__list">
-          <li><a class="nav__link" href="#oferta">Oferta</a></li>
           <li><a class="nav__link" href="#portfolio">Portfolio</a></li>
           <li><a class="nav__link" href="#pakiety">Pakiety</a></li>
+          <li><a class="nav__link" href="#proces">Proces</a></li>
           <li><a class="nav__link" href="#faq">FAQ</a></li>
           <li><a class="nav__link" href="#wspolpraca">Współpraca</a></li>
         </ul>
-
-        <a class="btn btn--ghost btn--nav" href="#wspolpraca">Wyślij brief</a>
+        <a class="btn btn--primary btn--nav" href="#wspolpraca">Współpraca</a>
       </nav>
+
+      <div class="nav-overlay" id="navOverlay" hidden></div>
     </div>
   </header>
 
   <main id="main">
     <!-- HERO -->
-    <section class="hero">
-      <div class="hero__glow" aria-hidden="true"></div>
+    <section class="hero" id="hero">
       <div class="container hero__inner" data-reveal>
-        <p class="eyebrow">Health &amp; Sport • UGC performance</p>
+        <p class="eyebrow">UGC PERFORMANCE • HEALTH &amp; SPORT</p>
+
         <h1 class="hero__title">
-          UGC Ads, które <span class="hero__muted">trzymają uwagę</span> i dowożą wynik.
+          UGC, tworzone z dyscypliną.<br />
+          <span class="hero__muted">Bez hałasu.</span>
         </h1>
+
         <p class="hero__lead">
-          Scenariusz + hook w pierwszych sekundach, dynamiczny montaż i napisy — pod sprzedaż, leady albo zasięg.
+          Tworzę wideo reklamowe dla marek z branży zdrowie i sport.
+          Hooki w pierwszych sekundach, precyzyjny przekaz i montaż pod wynik.
         </p>
 
         <div class="hero__actions">
-          <a class="btn btn--primary" href="#wspolpraca">Wyślij brief</a>
-          <a class="btn btn--ghost" href="#portfolio">Zobacz portfolio</a>
+          <a class="btn btn--primary" href="#portfolio">Zobacz portfolio</a>
+          <a class="btn btn--ghost" href="#wspolpraca">Napisz do mnie</a>
         </div>
 
-        <div class="chips">
+        <div class="chips" aria-label="Skróty oferty">
           <div class="chip">
-            <div class="chip__title">Hook pod CTR</div>
-            <div class="chip__desc">Pierwsze 2–3 sekundy robią robotę.</div>
+            <div class="chip__title">UGC Ads</div>
+            <div class="chip__desc">Meta / TikTok / Shorts</div>
           </div>
           <div class="chip">
-            <div class="chip__title">Montaż pod wynik</div>
-            <div class="chip__desc">Tempo, rytm, cięcia, napisy.</div>
+            <div class="chip__title">Hooki</div>
+            <div class="chip__desc">1–3 sekundy = wynik</div>
           </div>
           <div class="chip">
-            <div class="chip__title">Meta / TikTok</div>
-            <div class="chip__desc">9:16, 20–45s, format reklamowy.</div>
+            <div class="chip__title">Warianty</div>
+            <div class="chip__desc">testy pod performance</div>
           </div>
         </div>
       </div>
+
+      <div class="hero__glow" aria-hidden="true"></div>
     </section>
 
-    <!-- OFERTA -->
-    <section class="section" id="oferta">
+    <!-- WYNIKI -->
+    <section class="section" id="wyniki">
       <div class="container" data-reveal>
-        <h2 class="section__title">Oferta</h2>
-        <p class="section__subtitle">Co dostajesz w pakietach.</p>
+        <h2 class="section__title">Wyniki</h2>
+        <p class="section__subtitle">Ostatnie 30 dni • ruch organiczny</p>
 
-        <div class="grid grid--3">
-          <div class="card">
-            <h3 class="card__title">UGC Ads — Meta</h3>
-            <ul class="bullets">
-              <li>Hook pod CTR</li>
-              <li>Warianty pod test</li>
-              <li>Montaż + napisy</li>
-            </ul>
-            <p class="muted">Dla kampanii sprzedażowych i leadowych.</p>
-          </div>
-
-          <div class="card">
-            <h3 class="card__title">UGC — TikTok</h3>
-            <ul class="bullets">
-              <li>Tempo + napisy</li>
-              <li>Format 9:16</li>
-              <li>Naturalny vibe</li>
-            </ul>
-            <p class="muted">Pod zasięg i ruch na profil.</p>
-          </div>
-
-          <div class="card card--chart">
-            <h3 class="card__title">Testy hooków A/B</h3>
-
-            <div class="donut" aria-label="Podział czasu w reklamie">
-              <svg class="donut__svg" viewBox="0 0 120 120" role="img" aria-label="Donut chart">
+        <div class="grid grid--2">
+          <article class="card card--chart">
+            <div class="donut" id="donut"
+              data-views="23650"
+              data-a="31.9"
+              data-b="68.1"
+              aria-label="Wykres wyświetleń">
+              <svg class="donut__svg" viewBox="0 0 120 120" aria-hidden="true">
                 <defs>
                   <linearGradient id="gradA" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stop-color="#FF4FD8" />
-                    <stop offset="100%" stop-color="#6A5CFF" />
+                    <stop offset="0%" stop-color="#6A5CFF"/>
+                    <stop offset="100%" stop-color="#7F45FF"/>
                   </linearGradient>
                   <linearGradient id="gradB" x1="1" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="#6A5CFF" />
-                    <stop offset="100%" stop-color="#FF4FD8" />
+                    <stop offset="0%" stop-color="#FF4FD8"/>
+                    <stop offset="100%" stop-color="#A84CFF"/>
                   </linearGradient>
                 </defs>
 
@@ -156,28 +155,35 @@
               </svg>
 
               <div class="donut__center">
-                <div class="donut__label">Hook</div>
-                <div class="donut__value" id="donutValue">0%</div>
+                <div class="donut__label">Wyświetlenia</div>
+                <div class="donut__value" id="donutValue">23,650</div>
               </div>
 
-              <div class="donut__needle" aria-hidden="true"></div>
+              <span class="donut__needle" aria-hidden="true"></span>
             </div>
 
             <div class="legend">
               <div class="legend__row">
                 <span class="dot dot--a" aria-hidden="true"></span>
-                <span class="legend__label">Pierwsze 3 sekundy</span>
-                <span class="legend__value" id="legendA">—</span>
+                <span class="legend__label">Obserwatorzy</span>
+                <span class="legend__value">31,9%</span>
               </div>
               <div class="legend__row">
                 <span class="dot dot--b" aria-hidden="true"></span>
-                <span class="legend__label">Reszta wideo</span>
-                <span class="legend__value" id="legendB">—</span>
+                <span class="legend__label">Osoby nieobserwujące</span>
+                <span class="legend__value">68,1%</span>
               </div>
             </div>
+          </article>
 
-            <p class="muted">Wykres jest animowany i pokazuje ideę: kluczowy jest początek.</p>
-          </div>
+          <article class="card">
+            <h3 class="card__title">Co to znaczy?</h3>
+            <ul class="bullets">
+              <li>Duży udział nieobserwujących = content dociera szeroko.</li>
+              <li>Idealne pod performance UGC: hook + szybkie CTA.</li>
+              <li>Największy zwrot daje testowanie wariantów i hooków.</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
@@ -186,27 +192,74 @@
     <section class="section" id="portfolio">
       <div class="container" data-reveal>
         <h2 class="section__title">Portfolio</h2>
-        <p class="section__subtitle">Przykładowe formaty i style.</p>
+        <p class="section__subtitle">Wybrane realizacje (pod wynik, nie pod “ładnie”).</p>
 
-        <div class="grid grid--2">
-          <article class="work">
-            <div class="work__thumb"></div>
+        <div class="grid grid--3">
+
+          <!-- FILM 1 -->
+          <a class="work work--video"
+             href="diesel.mp4"
+             data-video="diesel.mp4"
+             aria-label="Otwórz wideo: Diesel — Performance UGC">
+            <div class="work__thumb">
+              <video class="work__video" data-src="diesel.mp4" muted loop playsinline preload="none"></video>
+            </div>
+            <div class="work__meta">
+              <div class="work__title">Diesel — Performance UGC</div>
+              <div class="work__desc">Dynamiczny showcase zegarka</div>
+            </div>
+          </a>
+
+          <!-- FILM 2 (podmień nazwę pliku jeśli inna) -->
+          <a class="work work--video"
+             href="film-2.mp4"
+             data-video="film-2.mp4"
+             aria-label="Otwórz wideo: UGC Ads — Meta">
+            <div class="work__thumb">
+              <video class="work__video" data-src="film-2.mp4" muted loop playsinline preload="none"></video>
+            </div>
+            <div class="work__meta">
+              <div class="work__title">UGC Ads — Meta</div>
+              <div class="work__desc">Hook + montaż pod CTR</div>
+            </div>
+          </a>
+
+          <!-- FILM 3 (podmień nazwę pliku jeśli inna) -->
+          <a class="work work--video"
+             href="film-3.mp4"
+             data-video="film-3.mp4"
+             aria-label="Otwórz wideo: UGC — TikTok">
+            <div class="work__thumb">
+              <video class="work__video" data-src="film-3.mp4" muted loop playsinline preload="none"></video>
+            </div>
             <div class="work__meta">
               <div class="work__title">UGC — TikTok</div>
-              <div class="work__desc">Szybkie cięcia, napisy</div>
+              <div class="work__desc">Tempo + napisy + cięcia</div>
             </div>
+          </a>
+
+        </div>
+
+        <!-- MINI CASE (PRO) -->
+        <div class="grid grid--2 u-mt">
+          <article class="card">
+            <h3 class="card__title">Mini case: dlaczego to działa</h3>
+            <ul class="bullets">
+              <li>Hook w 1–3 sekundy → mniej dropu na starcie.</li>
+              <li>Warianty kreacji → szybkie testy A/B zamiast zgadywania.</li>
+              <li>Montaż pod wynik → tempo, napisy, CTA, format 9:16.</li>
+            </ul>
           </article>
 
-          <article class="work">
-            <div class="work__thumb"></div>
-            <div class="work__meta">
-              <div class="work__title">Testy A/B</div>
-              <div class="work__desc">Warianty hooków</div>
+          <article class="card">
+            <h3 class="card__title">Następny krok</h3>
+            <p class="muted">Wypełnij brief — wrócę z propozycją i terminami.</p>
+            <div class="u-mt">
+              <a class="btn btn--primary btn--full" href="#wspolpraca">Wyślij brief</a>
             </div>
           </article>
         </div>
 
-        <!-- Jeśli masz tu wideo/filmy, zostaw je (nic nie usuwałem w tej wersji) -->
       </div>
     </section>
 
@@ -227,13 +280,11 @@
               <li>Wideo 9:16 (20–40s)</li>
               <li>Napisy + montaż</li>
             </ul>
-            <div class="u-mt">
-              <a class="btn btn--ghost btn--full" href="#wspolpraca">Wybieram BASIC</a>
-            </div>
+            <a class="btn btn--ghost btn--full" href="#wspolpraca">Wybieram BASIC</a>
           </article>
 
           <article class="price-card price-card--featured">
-            <span class="badge">Najczęściej wybierany</span>
+            <div class="badge">Najczęściej wybierany</div>
             <div class="price-card__top">
               <h3 class="price-card__name">PRO</h3>
               <div class="price-card__price">2500 zł</div>
@@ -244,9 +295,7 @@
               <li>Napisy + montaż</li>
               <li>Mini plan publikacji/ads</li>
             </ul>
-            <div class="u-mt">
-              <a class="btn btn--primary btn--full" href="#wspolpraca">Wybieram PRO</a>
-            </div>
+            <a class="btn btn--primary btn--full" href="#wspolpraca">Wybieram PRO</a>
           </article>
 
           <article class="price-card">
@@ -261,10 +310,39 @@
               <li>2 rundy poprawek</li>
               <li>Rekomendacje kreacji</li>
             </ul>
-            <div class="u-mt">
-              <a class="btn btn--ghost btn--full" href="#wspolpraca">Wybieram ELITE</a>
-            </div>
+            <a class="btn btn--ghost btn--full" href="#wspolpraca">Wybieram ELITE</a>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCES -->
+    <section class="section" id="proces">
+      <div class="container" data-reveal>
+        <h2 class="section__title">Proces</h2>
+        <p class="section__subtitle">Szybko, konkretnie, bez chaosu.</p>
+
+        <div class="steps">
+          <div class="step">
+            <div class="step__n">01</div>
+            <div class="step__t">Brief</div>
+            <div class="step__d">Cel, oferta, widz, format i kanał.</div>
+          </div>
+          <div class="step">
+            <div class="step__n">02</div>
+            <div class="step__t">Scenariusz + hook</div>
+            <div class="step__d">Hook w 1–3 sekundy + jasny przekaz.</div>
+          </div>
+          <div class="step">
+            <div class="step__n">03</div>
+            <div class="step__t">Nagranie</div>
+            <div class="step__d">Wideo 9:16, dynamiczne ujęcia, branding.</div>
+          </div>
+          <div class="step">
+            <div class="step__n">04</div>
+            <div class="step__t">Montaż + napisy</div>
+            <div class="step__d">Tempo, cuty, napisy, CTA i wersje.</div>
+          </div>
         </div>
       </div>
     </section>
@@ -278,17 +356,15 @@
         <div class="faq">
           <details class="faq__item">
             <summary class="faq__q">Ile trwa realizacja?</summary>
-            <div class="faq__a">Zwykle 3–7 dni roboczych (zależnie od zakresu i poprawek).</div>
+            <div class="faq__a">Zwykle 3–7 dni roboczych w zależności od pakietu i liczby wariantów.</div>
           </details>
-
           <details class="faq__item">
             <summary class="faq__q">Czy robisz warianty pod A/B?</summary>
-            <div class="faq__a">Tak — przygotowuję kilka hooków/wersji, żeby testować performance.</div>
+            <div class="faq__a">Tak — szczególnie w PRO/ELITE, bo testy hooków robią największą różnicę.</div>
           </details>
-
           <details class="faq__item">
             <summary class="faq__q">Czy mogę dostać poprawki?</summary>
-            <div class="faq__a">Tak — liczba rund zależy od pakietu (np. ELITE ma 2 rundy).</div>
+            <div class="faq__a">Tak. W ELITE masz 2 rundy poprawek. W pozostałych — do ustalenia w briefie.</div>
           </details>
         </div>
       </div>
@@ -300,38 +376,60 @@
         <h2 class="section__title">Współpraca</h2>
         <p class="section__subtitle">Napisz — wrócę z propozycją i terminami.</p>
 
-        <form class="brief-form" id="briefForm" action="https://formspree.io/f/xdalywzz" method="POST" novalidate>
-          <input type="hidden" name="_subject" value="Nowy brief — quietrite.pl" />
-
-          <div>
-            <label for="email">E-mail</label>
-            <input id="email" name="email" type="email" autocomplete="email" placeholder="np. kontakt@firma.pl" required />
+        <div class="grid grid--2">
+          <div class="contact" aria-label="Szybki kontakt">
+            <a class="contact__item" href="mailto:kontakt@quietrite.pl">
+              <span class="contact__k">E-mail</span>
+              <span class="contact__v">kontakt@quietrite.pl</span>
+            </a>
+            <a class="contact__item" href="https://instagram.com/quietrite" target="_blank" rel="noopener">
+              <span class="contact__k">Instagram</span>
+              <span class="contact__v">@quietrite</span>
+            </a>
           </div>
 
-          <div>
-            <label for="company">Firma</label>
-            <input id="company" name="company" type="text" autocomplete="organization" placeholder="np. Diesel" />
-          </div>
+          <form class="brief-form" id="briefForm" action="https://formspree.io/f/xdalywzz" method="POST">
+            <input type="hidden" name="_subject" value="Nowy brief — quietrite.pl" />
+            <label class="field">
+              <span class="field__label">E-mail *</span>
+              <input class="field__input" type="email" name="email" autocomplete="email" required />
+            </label>
 
-          <div>
-            <label for="goal">Cel kampanii</label>
-            <select id="goal" name="goal" required>
-              <option value="Sprzedaż" selected>Sprzedaż</option>
-              <option value="Leady">Leady</option>
-              <option value="Zasięg">Zasięg</option>
-            </select>
-          </div>
+            <label class="field">
+              <span class="field__label">Firma *</span>
+              <input class="field__input" type="text" name="company" autocomplete="organization" required />
+            </label>
 
-          <div>
-            <label for="desc">Opis projektu</label>
-            <textarea id="desc" name="description" placeholder="Krótko: produkt, grupa docelowa, oferta, budżet, deadline..."></textarea>
-          </div>
+            <label class="field">
+              <span class="field__label">Cel kampanii *</span>
+              <select class="field__input" name="goal" required>
+                <option value="" selected disabled>Wybierz…</option>
+                <option value="sprzedaz">Sprzedaż</option>
+                <option value="leady">Leady</option>
+                <option value="zasieg">Zasięg</option>
+              </select>
+            </label>
 
-          <button class="btn btn--primary btn--full" type="submit" id="briefSubmit">Wyślij brief</button>
+            <label class="field">
+              <span class="field__label">Opis projektu *</span>
+              <textarea class="field__input field__textarea" name="message" rows="6" required></textarea>
+            </label>
 
-          <p id="formError" class="form-msg form-msg--error" hidden>❌ Wystąpił błąd. Spróbuj ponownie.</p>
-          <p id="formSuccess" class="form-msg form-msg--success" hidden>✅ Brief został wysłany. Odezwę się wkrótce.</p>
-        </form>
+            <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" />
+
+            <button class="btn btn--primary btn--full" type="submit">Wyślij brief</button>
+
+            <p id="formSuccess" hidden role="status" aria-live="polite">
+              ✅ Brief został wysłany. Odezwę się wkrótce.
+            </p>
+
+            <p id="formError" hidden role="alert">
+              ❌ Wystąpił błąd. Spróbuj ponownie.
+            </p>
+
+            <p class="form-note muted">Odpowiem na podany e-mail.</p>
+          </form>
+        </div>
 
         <footer class="footer">
           <div class="footer__line"></div>
@@ -348,16 +446,40 @@
     </section>
   </main>
 
+  <!-- VIDEO MODAL -->
+  <div class="video-modal" id="videoModal" hidden aria-hidden="true">
+    <div class="video-modal__backdrop" data-close></div>
+
+    <div class="video-modal__panel" role="dialog" aria-modal="true" aria-label="Podgląd wideo" tabindex="-1">
+      <button class="video-modal__close" type="button" aria-label="Zamknij" data-close>×</button>
+      <video class="video-modal__video" id="videoModalVideo" controls playsinline></video>
+    </div>
+  </div>
+
+  <!-- SCHEMA (JSON-LD) -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": "https://quietrite.pl/#organization",
-    "name": "Quietrite",
-    "url": "https://quietrite.pl/",
-    "email": "kontakt@quietrite.pl",
-    "logo": "https://quietrite.pl/quietrite-logo.png",
-    "image": "https://quietrite.pl/quietrite-og.jpg"
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "@id":"https://quietrite.pl/#organization",
+    "name":"Quietrite",
+    "alternateName":"Krystian Stępniak / Quietrite",
+    "url":"https://quietrite.pl/",
+    "email":"kontakt@quietrite.pl",
+    "logo":"https://quietrite.pl/quietrite-logo.png",
+    "image":"https://quietrite.pl/quietrite-logo.png"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "@id":"https://quietrite.pl/#website",
+    "url":"https://quietrite.pl/",
+    "name":"Quietrite",
+    "publisher":{"@id":"https://quietrite.pl/#organization"},
+    "inLanguage":"pl-PL"
   }
   </script>
 </body>

@@ -410,7 +410,7 @@ button{font:inherit}
   align-items:center;
   justify-content:center;
   text-align:center;
-  transform: translateY(-6px); /* <<< bardziej do środka (podnosi) */
+  transform: translateY(-6px); /* <<< bardziej do Årodka (podnosi) */
 }
 
 .donut__label{
@@ -714,4 +714,3 @@ button{font:inherit}
   .work--video .work__thumb{
     height: 250px;        /* telefon */
   }
-}

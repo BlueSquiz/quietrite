@@ -214,13 +214,27 @@
   }
 
   // -------------------------
-  // VIDEO MODAL (Portfolio)
+  // VIDEO MODAL (Portfolio) — HARD FIX
   // -------------------------
   const videoModal = document.getElementById("videoModal");
   const videoModalVideo = document.getElementById("videoModalVideo");
   const modalPanel = videoModal ? videoModal.querySelector(".video-modal__panel") : null;
 
   let lastActiveEl = null;
+
+  const forceCloseOnLoad = () => {
+    if (!videoModal || !videoModalVideo) return;
+    // ZAWSZE startujemy z zamkniętym modalem
+    videoModalVideo.pause();
+    videoModalVideo.removeAttribute("src");
+    videoModalVideo.load();
+    videoModal.hidden = true;
+    videoModal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+  };
+
+  // odpal natychmiast po załadowaniu JS
+  forceCloseOnLoad();
 
   const openVideoModal = (src) => {
     if (!videoModal || !videoModalVideo || !src) return;
@@ -234,8 +248,8 @@
 
     if (modalPanel) modalPanel.focus({ preventScroll: true });
 
-    const p = videoModalVideo.play();
-    if (p && typeof p.catch === "function") p.catch(() => {});
+    // ❗️Nie autoplayujemy, żeby nic nie wyskakiwało na iOS.
+    // User sam kliknie Play w modalu.
   };
 
   const closeVideoModal = () => {
@@ -252,6 +266,33 @@
     if (lastActiveEl && typeof lastActiveEl.focus === "function") lastActiveEl.focus();
     lastActiveEl = null;
   };
+
+  // Otwieramy TYLKO po prawdziwym kliknięciu użytkownika w kartę .work--video
+  document.addEventListener("click", (e) => {
+    const card = e.target.closest("a.work--video[data-video]");
+    if (!card) return;
+
+    // zabezpieczenie przed “dziwnymi” klikami
+    if (!e.isTrusted) return;
+
+    const src = card.getAttribute("data-video");
+    if (!src) return;
+
+    e.preventDefault();
+    openVideoModal(src);
+  });
+
+  // Zamknięcie: X / tło
+  if (videoModal) {
+    videoModal.addEventListener("click", (e) => {
+      if (e.target && e.target.closest && e.target.closest("[data-close]")) closeVideoModal();
+    });
+  }
+
+  // ESC
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeVideoModal();
+  });
 
   // open from portfolio card
   document.addEventListener("click", (e) => {

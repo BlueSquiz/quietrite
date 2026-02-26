@@ -908,3 +908,50 @@ body{
 /* HARD FIX: ukrywanie elementów z atrybutem hidden (na wszelki wypadek) */
 [hidden]{display:none !important;}
 .video-modal[hidden]{display:none !important;}
+
+/* PORTFOLIO PRO */
+
+.work__thumb{ position: relative; }
+
+.work__play{
+  position:absolute;
+  inset:auto 14px 14px 14px;
+  height:44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius: 16px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.38);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: rgba(255,255,255,.92);
+  font-weight: 900;
+  letter-spacing:.02em;
+  box-shadow: 0 14px 40px rgba(0,0,0,.45);
+  opacity:.92;
+  transition: transform 180ms var(--ease), opacity 180ms var(--ease), background 180ms var(--ease);
+}
+
+.work--video:hover .work__play{
+  transform: translateY(-1px);
+  opacity: 1;
+  background: rgba(0,0,0,.44);
+}
+
+.work__tags{
+  display:flex;
+  flex-wrap: wrap;
+  gap:8px;
+  margin-top:10px;
+}
+
+.tag{
+  font-size:12px;
+  font-weight:900;
+  padding:7px 10px;
+  border-radius: 999px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  color: rgba(255,255,255,.72);
+}

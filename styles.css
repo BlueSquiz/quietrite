@@ -905,3 +905,6 @@ body{
   .section__subtitle{ font-size: 17px; }
   .hero__lead{ font-size: 17px; }
 }
+/* HARD FIX: ukrywanie elementów z atrybutem hidden (na wszelki wypadek) */
+[hidden]{display:none !important;}
+.video-modal[hidden]{display:none !important;}

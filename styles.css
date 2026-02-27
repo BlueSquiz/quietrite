@@ -1004,3 +1004,11 @@ body{
     padding: 0 10px;
   }
 }
+
+.form-note a{
+  color: rgba(215,180,106,.92);
+  font-weight: 900;
+}
+.form-note a:hover{
+  text-decoration: underline;
+}

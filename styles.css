@@ -1049,3 +1049,15 @@ body.modal-open{
   display: block;
   background: #000;
 }
+
+/* Accessibility / focus */
+
+:focus-visible{
+  outline: 2px solid rgba(215,180,106,.85);
+  outline-offset: 3px;
+  border-radius: 12px;
+}
+
+input, select, textarea{
+  font: inherit;
+}

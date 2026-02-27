@@ -349,3 +349,15 @@ if (briefForm && formStatus) {
   }
 
 })();
+
+// -------------------------
+// FAQ accordion (close others)
+// -------------------------
+document.querySelectorAll(".faq details").forEach((d) => {
+  d.addEventListener("toggle", () => {
+    if (!d.open) return;
+    document.querySelectorAll(".faq details[open]").forEach((other) => {
+      if (other !== d) other.open = false;
+    });
+  });
+});

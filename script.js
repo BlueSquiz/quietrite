@@ -227,6 +227,7 @@ if (nav) {
   const modalPanel = videoModal ? videoModal.querySelector(".video-modal__panel") : null;
 
   let lastActiveEl = null;
+  let modalScrollY = 0;
 
   const forceCloseOnLoad = () => {
     if (!videoModal || !videoModalVideo) return;
@@ -246,7 +247,9 @@ if (nav) {
     if (!videoModal || !videoModalVideo || !src) return;
 
     lastActiveEl = document.activeElement;
-
+    modalScrollY = window.scrollY || 0;
+    document.body.style.top = `-${modalScrollY}px`;
+    
     videoModalVideo.src = src;
     videoModal.hidden = false;
     videoModal.setAttribute("aria-hidden", "false");
@@ -259,20 +262,24 @@ if (nav) {
   };
 
   const closeVideoModal = () => {
-    if (!videoModal || !videoModalVideo) return;
+  if (!videoModal || !videoModalVideo) return;
 
-    videoModalVideo.pause();
-    videoModalVideo.removeAttribute("src");
-    videoModalVideo.load();
+  videoModalVideo.pause();
+  videoModalVideo.removeAttribute("src");
+  videoModalVideo.load();
 
-    videoModal.hidden = true;
-    videoModal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("modal-open");
+  videoModal.hidden = true;
+  videoModal.setAttribute("aria-hidden", "true");
 
-    if (lastActiveEl && typeof lastActiveEl.focus === "function") lastActiveEl.focus();
-    lastActiveEl = null;
-  };
+  const y = modalScrollY;
+  document.body.style.top = "";
+  document.body.classList.remove("modal-open");
+  window.scrollTo(0, y);
 
+  if (lastActiveEl && typeof lastActiveEl.focus === "function") lastActiveEl.focus();
+  lastActiveEl = null;
+};
+  
   // Otwieramy TYLKO po prawdziwym kliknięciu użytkownika w kartę .work--video
   document.addEventListener("click", (e) => {
     const card = e.target.closest("a.work--video[data-video]");

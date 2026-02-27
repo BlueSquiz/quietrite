@@ -161,63 +161,38 @@ if (nav) {
   }
 
   // -------------------------
-  // FORM (Formspree) — no redirect + UI messages
+  // FORM (Formspree)
   // -------------------------
   const briefForm = document.getElementById("briefForm");
-  if (briefForm) {
-    const successMessage = document.getElementById("formSuccess");
-    const errorMessage = document.getElementById("formError");
-    const submitBtn = briefForm.querySelector('button[type="submit"]');
+const formStatus = document.getElementById("formStatus");
 
-    const setBtn = (loading) => {
-      if (!submitBtn) return;
-      if (!submitBtn.dataset.defaultText) submitBtn.dataset.defaultText = submitBtn.textContent.trim();
-      if (loading) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Wysyłam…";
+if (briefForm && formStatus) {
+  briefForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    formStatus.hidden = false;
+    formStatus.textContent = "Wysyłam…";
+
+    const data = new FormData(briefForm);
+
+    try {
+      const res = await fetch(briefForm.action, {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+
+      if (res.ok) {
+        briefForm.reset();
+        formStatus.textContent = "✅ Brief wysłany. Odezwę się wkrótce.";
       } else {
-        submitBtn.disabled = false;
-        submitBtn.textContent = submitBtn.dataset.defaultText;
+        formStatus.textContent = "❌ Coś poszło nie tak. Spróbuj ponownie.";
       }
-    };
-
-    briefForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      if (successMessage) successMessage.hidden = true;
-      if (errorMessage) errorMessage.hidden = true;
-
-      setBtn(true);
-
-      const endpoint = briefForm.getAttribute("action")?.trim() || "https://formspree.io/f/xdalywzz";
-      const data = new FormData(briefForm);
-
-      try {
-        const res = await fetch(endpoint, {
-          method: "POST",
-          body: data,
-          headers: { Accept: "application/json" },
-        });
-
-        if (res.ok) {
-          briefForm.reset();
-          if (successMessage) {
-            successMessage.hidden = false;
-            successMessage.scrollIntoView({
-              behavior: prefersReducedMotion ? "auto" : "smooth",
-              block: "nearest",
-            });
-          }
-        } else {
-          if (errorMessage) errorMessage.hidden = false;
-        }
-      } catch (err) {
-        if (errorMessage) errorMessage.hidden = false;
-      } finally {
-        setBtn(false);
-      }
-    });
-  }
+    } catch {
+      formStatus.textContent = "❌ Brak połączenia. Spróbuj ponownie.";
+    }
+  });
+}
 
   // -------------------------
   // VIDEO MODAL (Portfolio) — HARD FIX

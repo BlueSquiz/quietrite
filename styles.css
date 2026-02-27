@@ -955,3 +955,52 @@ body{
   background: rgba(255,255,255,.03);
   color: rgba(255,255,255,.72);
 }
+
+/* LANG SWITCH (PL/EN) — PRO pill */
+.lang-switch{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:6px;
+  border-radius: 999px;
+  border:1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+  box-shadow: 0 14px 40px rgba(0,0,0,.25);
+}
+
+.lang-switch__link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  height:34px;
+  min-width:46px;
+  padding:0 12px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.72);
+  border:1px solid transparent;
+  transition: background 180ms var(--ease), color 180ms var(--ease), border-color 180ms var(--ease), transform 180ms var(--ease);
+}
+
+.lang-switch__link:hover{
+  background: rgba(255,255,255,.06);
+  color: rgba(255,255,255,.92);
+  transform: translateY(-1px);
+}
+
+.lang-switch__link.is-active{
+  background: rgba(215,180,106,.16);
+  border-color: rgba(215,180,106,.22);
+  color: rgba(215,180,106,.95);
+}
+
+/* Na bardzo małych ekranach niech nie rozpycha headera */
+@media (max-width: 420px){
+  .lang-switch__link{
+    min-width: 42px;
+    padding: 0 10px;
+  }
+}

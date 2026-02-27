@@ -1,73 +1,123 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self' mailto:; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self'; manifest-src 'self'; upgrade-insecure-requests;">
-<meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regulamin | QuietRite</title>
-    <meta name="description" content="Regulamin strony quietrite.pl">
-    <link rel="stylesheet" href="/styles.css">
-    <link rel="canonical" href="https://quietrite.pl/regulamin.html">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="robots" content="index,follow" />
+  <meta name="color-scheme" content="dark light" />
+
+  <title>Regulamin — Quietrite</title>
+  <meta name="description" content="Regulamin quietrite.pl — ogólne zasady korzystania ze strony i kontaktu." />
+
+  <link rel="canonical" href="https://quietrite.pl/regulamin.html" />
+
+  <!-- hreflang -->
+  <link rel="alternate" href="https://quietrite.pl/regulamin.html" hreflang="pl" />
+  <link rel="alternate" href="https://quietrite.pl/en/terms.html" hreflang="en" />
+  <link rel="alternate" href="https://quietrite.pl/" hreflang="x-default" />
+
+  <link rel="stylesheet" href="/styles.css?v=12" />
+  <script src="/script.js?v=12" defer></script>
 </head>
+
 <body>
+  <a class="skip-link" href="#main">Przejdź do treści</a>
 
-<main class="container">
-    <h1>Regulamin</h1>
+  <header class="header" id="top">
+    <div class="container header__inner">
+      <a class="brand" href="/" aria-label="Quietrite — strona główna">
+        <span class="brand__badge" aria-hidden="true">
+          <img class="brand__logo" src="/quietrite-logo.png" alt="" width="44" height="44" decoding="async" />
+        </span>
+        <span class="brand__name">QUIETRITE</span>
+      </a>
 
-    <h2>§1 Postanowienia ogólne</h2>
-    <p>
-        Właścicielem strony quietrite.pl jest:<br><br>
-        <strong>Krystian Stępniak / Quietrite</strong><br>
-        Jednoosobowa działalność gospodarcza<br>
-        Adres: Olsztyn 11-041<br>
-        E-mail: kontakt@quietrite.pl
-    </p>
+      <div class="lang-switch" aria-label="Wybór języka">
+        <a class="lang-switch__link is-active" href="/" aria-current="page">PL</a>
+        <a class="lang-switch__link" href="/en/">EN</a>
+      </div>
 
-    <h2>§2 Rodzaj i zakres usług</h2>
-    <p>
-        Strona ma charakter informacyjno-ofertowy.
-        Korzystanie ze strony jest bezpłatne.
-        Użytkownik może zapoznać się z treściami publikowanymi na stronie
-        oraz skontaktować się z usługodawcą drogą e-mailową.
-    </p>
+      <nav class="nav" aria-label="Nawigacja">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="/#portfolio">Portfolio</a></li>
+          <li><a class="nav__link" href="/#pakiety">Pakiety</a></li>
+          <li><a class="nav__link" href="/#wspolpraca">Współpraca</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <h2>§3 Wymagania techniczne</h2>
-    <ul>
-        <li>Urządzenie z dostępem do Internetu</li>
-        <li>Aktualna przeglądarka internetowa</li>
-        <li>Włączona obsługa JavaScript (zalecane)</li>
-    </ul>
+  <main id="main" class="section">
+    <div class="container" data-reveal>
+      <div class="legal-header">
+        <h1 class="section__title">Regulamin</h1>
+        <p class="section__subtitle">Ostatnia aktualizacja: 2026-02-27</p>
 
-    <h2>§4 Zasady korzystania ze strony</h2>
-    <p>
-        Użytkownik zobowiązany jest do korzystania ze strony zgodnie z obowiązującym prawem
-        oraz dobrymi obyczajami. Zabronione jest podejmowanie działań mogących zakłócić
-        funkcjonowanie strony lub naruszyć bezpieczeństwo systemu.
-    </p>
+        <div class="legal-actions">
+          <a class="btn btn--ghost" href="/">← Wróć na stronę główną</a>
+          <a class="btn btn--primary" href="/#wspolpraca">Wyślij brief</a>
+        </div>
+      </div>
 
-    <h2>§5 Odpowiedzialność</h2>
-    <p>
-        Usługodawca dokłada starań, aby informacje publikowane na stronie były aktualne
-        i rzetelne. Nie ponosi odpowiedzialności za przerwy w działaniu strony
-        wynikające z przyczyn technicznych.
-    </p>
+      <article class="card legal">
+        <h2 class="card__title">1. Postanowienia ogólne</h2>
+        <p class="muted">
+          Niniejszy regulamin określa ogólne zasady korzystania ze strony quietrite.pl oraz kontaktu z Quietrite.
+          Szczegóły współpracy (zakres, terminy, wynagrodzenie, licencje) ustalane są indywidualnie z Klientem.
+        </p>
+      </article>
 
-    <h2>§6 Ochrona danych osobowych</h2>
-    <p>
-        Zasady przetwarzania danych osobowych określa
-        <a href="/polityka-prywatnosci.html">Polityka prywatności</a>.
-    </p>
+      <article class="card legal u-mt">
+        <h2 class="card__title">2. Kontakt i zapytania</h2>
+        <ul class="bullets">
+          <li>Wysłanie formularza / wiadomości stanowi zapytanie ofertowe i nie jest zamówieniem.</li>
+          <li>Odpowiedź może zawierać propozycję zakresu, wyceny i terminu realizacji.</li>
+          <li>Do zawarcia umowy dochodzi po indywidualnym potwierdzeniu warunków (np. e-mail/umowa).</li>
+        </ul>
+      </article>
 
-    <h2>§7 Postanowienia końcowe</h2>
-    <p>
-        Regulamin podlega prawu polskiemu.
-        W sprawach nieuregulowanych zastosowanie mają przepisy prawa polskiego.
-        Usługodawca zastrzega sobie prawo do zmiany regulaminu.
-    </p>
+      <article class="card legal u-mt">
+        <h2 class="card__title">3. Prawa autorskie i licencje</h2>
+        <p class="muted">
+          Zasady wykorzystania materiałów (np. organic vs ads, czas, terytorium) określane są indywidualnie.
+          W przypadku braku odmiennych ustaleń materiały mogą być wykorzystywane wyłącznie zgodnie z uzgodnionym celem.
+        </p>
+      </article>
 
-    <p><a href="/">← Powrót na stronę główną</a></p>
-</main>
+      <article class="card legal u-mt">
+        <h2 class="card__title">4. Odpowiedzialność</h2>
+        <p class="muted">
+          Strona udostępniana jest w formule „tak jak jest”. Quietrite nie ponosi odpowiedzialności za przejściową
+          niedostępność strony wynikającą z awarii hostingu lub zdarzeń niezależnych.
+        </p>
+      </article>
 
+      <article class="card legal u-mt">
+        <h2 class="card__title">5. Zmiany regulaminu</h2>
+        <p class="muted">
+          Quietrite może aktualizować regulamin. Aktualna wersja publikowana jest na tej stronie.
+        </p>
+      </article>
+
+      <div class="legal-footer u-mt">
+        <a class="btn btn--ghost" href="/">← Wróć</a>
+        <a class="btn btn--primary" href="/#wspolpraca">Wyślij brief</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__line"></div>
+      <div class="footer__bottom">
+        <span>© <span id="year"></span> QUIETRITE</span>
+        <a class="footer__link" href="#top">Do góry ↑</a>
+      </div>
+      <div class="footer-legal">
+        <a href="/polityka-prywatnosci.html">Polityka prywatności</a> |
+        <a href="/regulamin.html">Regulamin</a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

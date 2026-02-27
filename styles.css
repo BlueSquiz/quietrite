@@ -1012,3 +1012,31 @@ body{
 .form-note a:hover{
   text-decoration: underline;
 }
+
+/* FINAL POLISH (mobile/iOS) */
+
+/* header spacing: logo + lang + burger nie będą się ściskać */
+.header__inner{
+  flex-wrap: wrap;
+}
+
+/* na małych ekranach: lang switch i burger w jednej linii po prawej */
+@media (max-width: 520px){
+  .header__inner{
+    gap: 10px;
+  }
+  .lang-switch{
+    margin-left: auto;
+  }
+}
+
+/* poprawa klikalności elementów w portfolio */
+.work{
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* modal: nie pozwól na “przewijanie tła” na iOS */
+body.modal-open{
+  position: fixed;
+  width: 100%;
+}

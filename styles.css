@@ -1061,3 +1061,39 @@ body.modal-open{
 input, select, textarea{
   font: inherit;
 }
+
+/* LEGAL PAGES (Privacy/Terms) — PRO aesthetics */
+
+.legal-header{
+  display:grid;
+  gap:10px;
+}
+
+.legal-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:6px;
+}
+
+.legal{
+  padding: 20px;
+}
+
+.legal .card__title{
+  font-size: 20px;
+}
+
+.legal p.muted{
+  line-height: 1.7;
+}
+
+.legal .bullets{
+  line-height: 1.75;
+}
+
+.legal-footer{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+}

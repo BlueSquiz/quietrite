@@ -33,7 +33,13 @@
     menuToggle.setAttribute("aria-label", "Otwórz menu");
     document.body.classList.remove("nav-open");
   };
-
+     // Close mobile nav when any nav link is clicked
+if (nav) {
+  nav.addEventListener("click", (e) => {
+    const link = e.target.closest("a");
+    if (link) closeNav();
+  });
+}
   const toggleNav = () => {
     if (!nav) return;
     nav.dataset.state === "open" ? closeNav() : openNav();

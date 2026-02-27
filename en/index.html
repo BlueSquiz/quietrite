@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
 
-  <!-- CSP: allows JSON-LD inline + Formspree + external JS/CSS -->
+  <!-- CSP: allows JSON-LD inline + Formspree -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self' https://formspree.io; img-src 'self' data:; style-src 'self'; script-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' https://formspree.io; manifest-src 'self'; upgrade-insecure-requests;">
 
   <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -16,8 +16,6 @@
   <meta name="theme-color" content="#0B0B10" />
 
   <link rel="canonical" href="https://quietrite.pl/en/" />
-
-  <!-- hreflang -->
   <link rel="alternate" href="https://quietrite.pl/" hreflang="pl" />
   <link rel="alternate" href="https://quietrite.pl/en/" hreflang="en" />
   <link rel="alternate" href="https://quietrite.pl/" hreflang="x-default" />
@@ -49,12 +47,9 @@
   <meta name="twitter:image" content="https://quietrite.pl/og-quietrite-1200x630.png" />
   <meta name="twitter:image:alt" content="Quietrite — UGC Ads for Health & Sport brands" />
 
-  <!-- Perf -->
-  <link rel="preload" href="/styles.css?v=10" as="style">
-  <link rel="preload" href="/quietrite-logo.png" as="image" fetchpriority="high">
-  <link rel="stylesheet" href="/styles.css?v=10">
-  <link rel="preload" href="/script.js?v=10" as="script">
-  <script src="/script.js?v=10" defer></script>
+  <!-- Assets (cache bust) -->
+  <link rel="stylesheet" href="/styles.css?v=12">
+  <script src="/script.js?v=12" defer></script>
 </head>
 
 <body>
@@ -210,7 +205,7 @@
           <!-- VIDEO 1 -->
           <a class="work work--video" href="/diesel.mp4" data-video="/diesel.mp4" aria-label="Open video: Diesel — Performance UGC">
             <div class="work__thumb">
-              <video class="work__video" data-src="/diesel.mp4" muted loop playsinline preload="none"></video>
+              <video class="work__video" data-src="/diesel.mp4" playsinline muted loop preload="metadata"></video>
               <div class="work__play" aria-hidden="true">▶</div>
             </div>
             <div class="work__meta">
@@ -225,7 +220,7 @@
           <!-- VIDEO 2 (rename if needed) -->
           <a class="work work--video" href="/film-2.mp4" data-video="/film-2.mp4" aria-label="Open video: UGC Ads — Meta">
             <div class="work__thumb">
-              <video class="work__video" data-src="/film-2.mp4" muted loop playsinline preload="none"></video>
+              <video class="work__video" data-src="/film-2.mp4" playsinline muted loop preload="metadata"></video>
               <div class="work__play" aria-hidden="true">▶</div>
             </div>
             <div class="work__meta">
@@ -240,7 +235,7 @@
           <!-- VIDEO 3 (rename if needed) -->
           <a class="work work--video" href="/film-3.mp4" data-video="/film-3.mp4" aria-label="Open video: UGC — TikTok">
             <div class="work__thumb">
-              <video class="work__video" data-src="/film-3.mp4" muted loop playsinline preload="none"></video>
+              <video class="work__video" data-src="/film-3.mp4" playsinline muted loop preload="metadata"></video>
               <div class="work__play" aria-hidden="true">▶</div>
             </div>
             <div class="work__meta">
@@ -369,15 +364,17 @@
         <div class="faq">
           <details class="faq__item">
             <summary class="faq__q">How long does delivery take?</summary>
-            <div class="faq__a">Usually 3–7 business days depending on scope and variants.</div>
+            <div class="faq__a">Typically 3–7 business days depending on the package and number of variants.</div>
           </details>
+
           <details class="faq__item">
             <summary class="faq__q">Do you create A/B variants?</summary>
-            <div class="faq__a">Yes — especially in PRO/ELITE. Testing hooks makes the biggest difference.</div>
+            <div class="faq__a">Yes — especially in PRO/ELITE, because hook testing makes the biggest difference.</div>
           </details>
+
           <details class="faq__item">
             <summary class="faq__q">Can I request revisions?</summary>
-            <div class="faq__a">Yes. ELITE includes 2 revision rounds. Others are agreed in the brief.</div>
+            <div class="faq__a">Yes. ELITE includes 2 revision rounds. Other packages are agreed during the brief.</div>
           </details>
         </div>
       </div>
@@ -438,7 +435,9 @@
             <p id="formError" hidden role="alert">❌ Something went wrong. Please try again.</p>
 
             <p class="form-note muted">I’ll reply to the email you provided.</p>
-            <p class="form-note muted">By sending the brief you accept the <a href="/en/terms.html">Terms</a> and acknowledge the <a href="/en/privacy.html">Privacy Policy</a>.</p>
+            <p class="form-note muted">
+              By sending the brief you accept the <a href="/en/terms.html">Terms</a> and acknowledge the <a href="/en/privacy.html">Privacy Policy</a>.
+            </p>
           </form>
         </div>
 
@@ -466,7 +465,7 @@
     </div>
   </div>
 
-  <!-- Schema (EN) -->
+  <!-- JSON-LD: Organization -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -476,6 +475,54 @@
     "url":"https://quietrite.pl/",
     "email":"kontakt@quietrite.pl",
     "logo":"https://quietrite.pl/quietrite-logo.png"
+  }
+  </script>
+
+  <!-- JSON-LD: WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "@id":"https://quietrite.pl/#website",
+    "url":"https://quietrite.pl/",
+    "name":"Quietrite",
+    "publisher":{"@id":"https://quietrite.pl/#organization"},
+    "inLanguage":"en-EN"
+  }
+  </script>
+
+  <!-- JSON-LD: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": "https://quietrite.pl/en/#faq",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How long does delivery take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Typically 3–7 business days depending on the package and number of variants."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you create A/B variants?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — especially in PRO/ELITE, because hook testing makes the biggest difference."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I request revisions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. ELITE includes 2 revision rounds. Other packages are agreed during the brief."
+        }
+      }
+    ]
   }
   </script>
 </body>
